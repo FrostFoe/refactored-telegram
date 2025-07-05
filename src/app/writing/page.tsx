@@ -27,10 +27,8 @@ const itemVariants = {
 const PostCard = ({ post }: { post: Post }) => (
   <motion.div
     variants={itemVariants}
-    whileHover={{ y: -8 }}
-    transition={{ type: 'spring', stiffness: 400, damping: 10 }}
   >
-    <Link href="#" className="block p-8 rounded-3xl bg-white/40 backdrop-blur-2xl border border-white/50 shadow-xl group transition-colors duration-300 hover:border-white/80">
+    <Link href="#" className="block p-8 group">
       <div className="flex justify-between items-start">
         <Badge
           variant={post.tag === 'Design' ? 'default' : post.tag === 'Strategy' ? 'secondary' : 'outline'}

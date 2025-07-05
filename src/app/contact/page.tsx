@@ -58,7 +58,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
-          className="md:col-span-2 bg-white/40 backdrop-blur-2xl rounded-3xl p-8 border border-white/50 shadow-xl"
+          className="md:col-span-2"
         >
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -120,22 +120,14 @@ export default function ContactPage() {
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.6 }}
             className="space-y-6"
         >
-            <motion.div
-                className="bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-xl"
-                whileHover={{ y: -5, scale: 1.03 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-            >
+            <div>
                 <h3 className="font-semibold text-gray-800 mb-2 flex items-center"><Mail className="w-4 h-4 mr-2" /> Email</h3>
                 <p className="text-gray-600">hello@daybreak.studio</p>
-            </motion.div>
-            <motion.div
-                className="bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-xl"
-                whileHover={{ y: -5, scale: 1.03 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-            >
+            </div>
+            <div>
                 <h3 className="font-semibold text-gray-800 mb-2 flex items-center"><MapPin className="w-4 h-4 mr-2" /> Based In</h3>
                 <p className="text-gray-600">The Cloud, Everywhere</p>
-            </motion.div>
+            </div>
         </motion.div>
       </div>
     </div>
