@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
@@ -7,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, MapPin } from 'lucide-react';
@@ -17,8 +16,6 @@ const formSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address.' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
-
-const MotionButton = motion(Button);
 
 export default function ContactPage() {
     const { toast } = useToast();
@@ -44,8 +41,8 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
-        className="text-center"
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="text-center mb-16"
       >
         <h1 className="text-3xl md:text-5xl font-medium text-gray-800">Let's build together.</h1>
         <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
@@ -53,11 +50,11 @@ export default function ContactPage() {
         </p>
       </motion.div>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
           className="md:col-span-2"
         >
           <Form {...form}>
@@ -101,24 +98,23 @@ export default function ContactPage() {
                   </FormItem>
                 )}
               />
-              <MotionButton
-                type="submit"
-                size="lg"
-                className="w-full"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+               <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                Send Message
-              </MotionButton>
+                <Button type="submit" size="lg" className="w-full">
+                    Send Message
+                </Button>
+              </motion.div>
             </form>
           </Form>
         </motion.div>
         <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.6 }}
-            className="space-y-6"
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
+            className="space-y-6 pt-2"
         >
             <div>
                 <h3 className="font-semibold text-gray-800 mb-2 flex items-center"><Mail className="w-4 h-4 mr-2" /> Email</h3>

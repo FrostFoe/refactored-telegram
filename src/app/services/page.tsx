@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
@@ -31,7 +30,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
 };
 
@@ -51,7 +50,7 @@ export default function ServicesPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="text-center"
+        className="text-center mb-16"
       >
         <h1 className="text-3xl md:text-5xl font-medium text-gray-800">Our Expertise</h1>
         <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
@@ -60,7 +59,7 @@ export default function ServicesPage() {
       </motion.div>
 
       <motion.div
-        className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -68,14 +67,14 @@ export default function ServicesPage() {
         {services.map((service) => (
           <motion.div
             key={service.title}
-            className="text-center flex flex-col items-center group p-6"
+            className="text-center flex flex-col items-center p-4 group"
             variants={itemVariants}
           >
-            <div className="w-16 h-16 flex items-center justify-center mb-6">
-              <service.icon className="w-8 h-8 text-gray-700 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
+            <div className="w-16 h-16 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
+              <service.icon className="w-8 h-8 text-gray-700" />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+            <p className="text-gray-600 leading-relaxed">{service.description}</p>
           </motion.div>
         ))}
       </motion.div>
