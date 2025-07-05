@@ -14,13 +14,12 @@ async function getContent<T>(contentType: 'work' | 'writing' | 'pages', slug?: s
   
   if (slug) {
     const filePath = path.join(dir, `${slug}.mdx`)
-    try {
-      const fileContents = fs.readFileSync(filePath, 'utf8')
-      const { data, content } = matter(fileContents)
-      return { frontmatter: data as T, content, slug }
-    } catch (err) {
-      return null
-    }
+    // Reading the file directly without a try/catch. 
+    // If the file doesn't exist, Next.js will handle the error gracefully,
+    // which makes debugging easier and allows `notFound()` to work correctly.
+    const fileContents = fs.readFileSync(filePath, 'utf8')
+    const { data, content } = matter(fileContents)
+    return { frontmatter: data as T, content, slug }
   } else {
     const filenames = fs.readdirSync(dir)
     return filenames.map(filename => {

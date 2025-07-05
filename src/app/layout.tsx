@@ -3,8 +3,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import StarrySky from '@/components/StarrySky';
-import KonamiListener from '@/components/KonamiListener';
 import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -25,8 +23,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
-        <StarrySky />
-        <KonamiListener />
         <Header />
         <main className="relative z-10">{children}</main>
         <Footer />
