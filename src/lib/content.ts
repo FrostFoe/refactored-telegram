@@ -9,17 +9,19 @@ import type { PostFrontmatter, ProjectFrontmatter } from '@/types'
 const contentDirectory = path.join(process.cwd(), 'content')
 
 // Generic function to get content from a subdirectory
-async function getContent<T>(contentType: 'work' | 'writing' | 'pages', slug?: string) {
+async function getContent<T>(contentType: 'work' | 'writing' | 'pages', slug?: string): Promise<any> {
   const dir = path.join(contentDirectory, contentType)
   
   if (slug) {
     const filePath = path.join(dir, `${slug}.mdx`)
-    // Reading the file directly without a try/catch. 
-    // If the file doesn't exist, Next.js will handle the error gracefully,
-    // which makes debugging easier and allows `notFound()` to work correctly.
-    const fileContents = fs.readFileSync(filePath, 'utf8')
-    const { data, content } = matter(fileContents)
-    return { frontmatter: data as T, content, slug }
+    try {
+        const fileContents = fs.readFileSync(filePath, 'utf8')
+        const { data, content } = matter(fileContents)
+        return { frontmatter: data as T, content, slug }
+    } catch (error) {
+        // If file doesn't exist, return null. The calling page component will handle it.
+        return null
+    }
   } else {
     const filenames = fs.readdirSync(dir)
     return filenames.map(filename => {
@@ -57,6 +59,7 @@ export async function getPostBySlug(slug: string) {
 export async function getPageContent(slug: string) {
   const page = await getContent<any>('pages', slug)
   if (!page) {
+    // For static pages, we expect the content to exist. If not, it's a developer error.
     throw new Error(`No content found for page: ${slug}`);
   }
   return page;
