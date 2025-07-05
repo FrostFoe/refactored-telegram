@@ -11,21 +11,21 @@ const projects: Project[] = [
     tag: 'Strategy',
     title: 'Dropbox',
     date: 'January 15, 2025',
-    image: 'https://via.placeholder.com/80x80/000000'
+    image: 'https://htmlcolorcodes.com/assets/images/colors/pastel-pink-color-solid-background-1920x1080.png'
   },
   {
     id: 'superpower',
     tag: 'Superpower',
     title: 'Superpower',
     date: 'June 6, 2024',
-    image: 'https://via.placeholder.com/80x80/333333'
+    image: 'https://htmlcolorcodes.com/assets/images/colors/pastel-pink-color-solid-background-1920x1080.png'
   },
   {
     id: 'adidas',
     tag: 'Adidas',
     title: 'Adidas x Crypto the Game',
     date: 'May 15, 2024',
-    image: 'https://via.placeholder.com/80x80/f0f0f0'
+    image: 'https://htmlcolorcodes.com/assets/images/colors/pastel-pink-color-solid-background-1920x1080.png'
   }
 ];
 
@@ -80,7 +80,7 @@ export default function Home() {
       </motion.h1>
       
       <motion.div 
-        className="relative w-full max-w-5xl h-[600px] lg:h-[700px] mt-16 sm:mt-20 mx-auto"
+        className="relative w-full max-w-5xl h-[700px] lg:h-[800px] mt-16 sm:mt-20 mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -92,7 +92,7 @@ export default function Home() {
           whileHover={{ scale: 1.05, y: -5, rotate: -7 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <Image src="https://via.placeholder.com/300x200" alt="Abstract colors" fill className="object-cover opacity-50" data-ai-hint="abstract color blur"/>
+          <Image src="https://htmlcolorcodes.com/assets/images/colors/pastel-pink-color-solid-background-1920x1080.png" alt="Abstract colors" fill className="object-cover opacity-50" data-ai-hint="abstract color blur"/>
         </motion.div>
         
         <motion.div 
@@ -117,7 +117,7 @@ export default function Home() {
           whileTap={{ scale: 0.97 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-            <Image src="https://via.placeholder.com/800x600/000000" alt="Adeline Preview" fill className="object-cover" data-ai-hint="code editor landscape" />
+            <Image src="https://htmlcolorcodes.com/assets/images/colors/pastel-pink-color-solid-background-1920x1080.png" alt="Adeline Preview" fill className="object-cover" data-ai-hint="code editor landscape" />
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-between">
                 <div>
                     <h3 className="text-white font-semibold">Adeline</h3>
@@ -144,12 +144,12 @@ export default function Home() {
                 animate={{ y: [0, -4, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
              >
-                <Image src="https://via.placeholder.com/400x300" alt="Unicorn illustration" fill className="object-cover" data-ai-hint="unicorn abstract" />
+                <Image src="https://htmlcolorcodes.com/assets/images/colors/pastel-pink-color-solid-background-1920x1080.png" alt="Unicorn illustration" fill className="object-cover" data-ai-hint="unicorn abstract" />
              </motion.div>
         </motion.div>
 
         <motion.div 
-          className="absolute bottom-16 right-8 md:bottom-10 md:right-24 w-28 h-24 md:w-40 md:h-32 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/70 shadow-2xl flex flex-col items-center justify-center space-y-3" 
+          className="absolute bottom-16 right-8 md:bottom-24 md:right-24 w-28 h-24 md:w-40 md:h-32 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/70 shadow-2xl flex flex-col items-center justify-center space-y-3" 
           style={{ transform: 'rotate(10deg)' }}
           variants={itemVariants}
           whileHover={{ scale: 1.05, y: -5, rotate: 12 }}
