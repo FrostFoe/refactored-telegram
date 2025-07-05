@@ -1,36 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Compass, Lightbulb, PenTool, Code } from 'lucide-react';
-
-const services = [
-  {
-    icon: Compass,
-    title: 'Strategy',
-    description: 'Defining a clear path to success with market analysis, user research, and product roadmapping.',
-  },
-  {
-    icon: Lightbulb,
-    title: 'Product Design',
-    description: 'Creating intuitive and beautiful interfaces that are a joy to use, from wireframes to high-fidelity prototypes.',
-  },
-  {
-    icon: PenTool,
-    title: 'Branding',
-    description: 'Crafting unique brand identities that resonate with your audience and tell a compelling story.',
-  },
-  {
-    icon: Code,
-    title: 'Development',
-    description: 'Building robust and scalable web applications with modern technologies and best practices.',
-  },
-];
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.2, delayChildren: 0.2 },
   },
 };
 
@@ -47,36 +23,37 @@ export default function ServicesPage() {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center px-4 pt-32 pb-16">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="text-center mb-16"
-      >
-        <h1 className="text-3xl md:text-5xl font-medium text-gray-800">Our Expertise</h1>
-        <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-          We partner with ambitious teams to create exceptional digital products and experiences.
-        </p>
-      </motion.div>
-
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl"
+        className="w-full max-w-4xl mx-auto text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {services.map((service) => (
-          <motion.div
-            key={service.title}
-            className="text-center flex flex-col items-center p-4 group"
-            variants={itemVariants}
-          >
-            <div className="w-16 h-16 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-              <service.icon className="w-8 h-8 text-gray-700" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-            <p className="text-gray-600 leading-relaxed">{service.description}</p>
+        <motion.h1
+          className="text-3xl md:text-5xl font-medium text-gray-800 mb-12"
+          variants={itemVariants}
+        >
+          Our Approach
+        </motion.h1>
+        <div className="space-y-10 text-left">
+          <motion.div variants={itemVariants}>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Strategy & Design</h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              We begin by understanding your vision. Through deep research and collaborative workshops, we define a clear strategy that aligns your business goals with user needs. This foundation allows us to craft intuitive, beautiful designs that are not only aesthetically pleasing but also highly functional and a joy to use.
+            </p>
           </motion.div>
-        ))}
+          <motion.div variants={itemVariants}>
+             <h2 className="text-2xl font-semibold text-gray-800 mb-2">Branding & Identity</h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              A brand is more than a logo; it's a story. We help you tell that story by building a comprehensive brand identity that resonates with your audience. From color palettes to typography, we create a visual language that is both memorable and authentic to your mission.
+            </p>
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Technology & Development</h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Our development process is rooted in modern best practices. We build robust, scalable, and performant web applications using technologies that are built to last. We write clean, maintainable code to ensure your digital product can evolve and grow with your business.
+            </p>
+          </motion.div>
+        </div>
       </motion.div>
     </div>
   );
