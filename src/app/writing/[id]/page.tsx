@@ -1,54 +1,56 @@
 'use server';
 
-import { getProjectBySlug, getProjects } from '@/lib/content';
+import { getPostBySlug, getPosts } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-interface ProductPageProps {
+interface PostPageProps {
   params: {
     id: string;
   };
 }
 
 export async function generateStaticParams() {
-  const projects = await getProjects();
-  return projects.map(project => ({
-    id: project.slug,
+  const posts = await getPosts();
+  return posts.map(post => ({
+    id: post.slug,
   }));
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
-  const project = await getProjectBySlug(params.id);
+export default async function PostPage({ params }: PostPageProps) {
+  const post = await getPostBySlug(params.id);
 
-  if (!project) {
+  if (!post) {
     notFound();
   }
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center px-4 pt-32 pb-16">
-      <div className="w-full max-w-4xl">
+      <div
+        className="w-full max-w-4xl"
+      >
         <div className="mb-12">
             <Button variant="ghost" asChild className="text-gray-600 hover:text-gray-900">
-                <Link href="/">
+                <Link href="/writing">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Work
+                    Back to Writing
                 </Link>
             </Button>
         </div>
         
         <article>
           <header className="mb-8 text-center">
-            <p className="text-lg text-gray-500 mb-2">{project.frontmatter.year}</p>
-            <h1 className="text-3xl md:text-5xl font-medium text-gray-800">{project.frontmatter.title}</h1>
+            <p className="text-lg text-gray-500 mb-2">{post.frontmatter.date}</p>
+            <h1 className="text-3xl md:text-5xl font-medium text-gray-800">{post.frontmatter.title}</h1>
           </header>
 
           <div 
             className="prose lg:prose-xl max-w-none mx-auto text-2xl text-gray-600 leading-relaxed space-y-8"
           >
-            <MDXRemote source={project.content} />
+            <MDXRemote source={post.content} />
           </div>
         </article>
       </div>

@@ -1,15 +1,13 @@
-export interface Project {
-  id: string;
-  tag: string;
+export interface ProjectFrontmatter {
+  slug: string;
   title: string;
-  date: string;
-  image: string;
+  description: string;
+  year: string;
 }
 
-export interface Post {
-    id: string;
-    title: string;
-    date: string;
-    excerpt: string;
-    tag: string;
+export interface PostFrontmatter {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
 }

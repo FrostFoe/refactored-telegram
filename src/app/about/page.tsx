@@ -1,6 +1,8 @@
-'use client';
+'use server';
 
 import { motion } from 'framer-motion';
+import { getPageContent } from '@/lib/content';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -19,42 +21,23 @@ const itemVariants = {
   },
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { frontmatter, content } = await getPageContent('about');
+
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center px-4 pt-32 pb-16">
-      <motion.div
+      <div
         className="w-full max-w-4xl mx-auto text-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
       >
-        <motion.h1
+        <h1
           className="text-3xl md:text-5xl font-medium text-gray-800 mb-12"
-          variants={itemVariants}
         >
-          Our Mission
-        </motion.h1>
-        <div className="space-y-8">
-          <motion.p
-            className="text-2xl md:text-3xl text-gray-600 leading-relaxed"
-            variants={itemVariants}
-          >
-            Daybreak Studio creates brand, web, and software experiences by integrating technology to enhance human craft.
-          </motion.p>
-          <motion.p
-            className="text-2xl md:text-3xl text-gray-600 leading-relaxed"
-            variants={itemVariants}
-          >
-            We work closely with ambitious companies to realize their vision for the future. Through everything we do, we aim to build works of design that are beautiful, intuitive, and functional.
-          </motion.p>
-          <motion.p
-            className="text-2xl md:text-3xl text-gray-700 font-medium leading-relaxed"
-            variants={itemVariants}
-          >
-            Design that feels right. Tech that works well.
-          </motion.p>
+          {frontmatter.title}
+        </h1>
+        <div className="space-y-8 text-2xl md:text-3xl text-gray-600 leading-relaxed prose lg:prose-xl max-w-none">
+          <MDXRemote source={content} />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

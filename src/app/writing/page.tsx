@@ -1,30 +1,13 @@
-'use client';
+'use server';
 
-import { posts, type Post } from '@/lib/writing';
-import { motion } from 'framer-motion';
+import { getPosts } from '@/lib/content';
+import type { PostFrontmatter } from '@/types';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-  },
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: 'spring', stiffness: 100 },
-  },
-};
-
-const PostItem = ({ post }: { post: Post }) => (
-  <motion.div variants={itemVariants}>
-    <Link href="#" className="block py-10 group">
+const PostItem = ({ post }: { post: PostFrontmatter }) => (
+  <div>
+    <Link href={`/writing/${post.slug}`} className="block py-10 group">
       <div className="mb-2">
         <span className="text-sm text-gray-500">{post.date}</span>
       </div>
@@ -35,34 +18,30 @@ const PostItem = ({ post }: { post: Post }) => (
         <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </Link>
-  </motion.div>
+  </div>
 );
 
-export default function WritingPage() {
+export default async function WritingPage() {
+  const posts = await getPosts();
+
   return (
     <div className="w-full min-h-screen flex flex-col items-center px-4 pt-32 pb-16">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+      <div
         className="text-center mb-16"
       >
         <h1 className="text-3xl md:text-5xl font-medium text-gray-800">Thoughts & Ideas</h1>
         <p className="mt-4 text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
           Exploring design, technology, and the space in between.
         </p>
-      </motion.div>
+      </div>
 
-      <motion.div
+      <div
         className="w-full max-w-4xl divide-y divide-gray-200/60"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
       >
         {posts.map((post) => (
-          <PostItem key={post.id} post={post} />
+          <PostItem key={post.slug} post={post} />
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
