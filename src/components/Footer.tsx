@@ -11,47 +11,27 @@ const DaybreakLogo = () => (
 const Footer = () => {
   return (
     <footer className="relative z-10 border-t border-gray-200/60 mt-32">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="md:col-span-1">
-                <Link href="/" className="flex items-center gap-2 mb-4">
-                    <DaybreakLogo />
-                    <span className="font-semibold text-gray-800">Daybreak</span>
-                </Link>
-                <p className="text-sm text-gray-600">A design and technology studio.</p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-3 gap-8">
-                <div>
-                    <h4 className="font-semibold text-gray-800 mb-4">Navigate</h4>
-                    <ul className="space-y-2">
-                        <li><Link href="/" className="text-gray-600 hover:text-gray-900">Work</Link></li>
-                        <li><Link href="/services" className="text-gray-600 hover:text-gray-900">Services</Link></li>
-                        <li><Link href="/about" className="text-gray-600 hover:text-gray-900">About</Link></li>
-                    </ul>
-                </div>
-                 <div>
-                    <h4 className="font-semibold text-gray-800 mb-4">Engage</h4>
-                    <ul className="space-y-2">
-                        <li><Link href="/writing" className="text-gray-600 hover:text-gray-900">Writing</Link></li>
-                        <li><Link href="/contact" className="text-gray-600 hover:text-gray-900">Contact</Link></li>
-                    </ul>
-                </div>
-                 <div>
-                    <h4 className="font-semibold text-gray-800 mb-4">Connect</h4>
-                    <div className="flex items-center gap-4">
-                        <Link href="#" aria-label="Twitter">
-                            <Twitter className="h-5 w-5 text-gray-500 transition-colors hover:text-gray-800" />
-                        </Link>
-                        <Link href="#" aria-label="GitHub">
-                            <Github className="h-5 w-5 text-gray-500 transition-colors hover:text-gray-800" />
-                        </Link>
-                    </div>
-                </div>
-            </div>
+      <div className="container mx-auto px-4 py-12 flex flex-col items-center text-center">
+        
+        <Link href="/" className="flex flex-col items-center gap-2 mb-6 text-gray-800 transition-colors hover:text-primary">
+            <DaybreakLogo />
+            <span className="font-semibold text-lg">Daybreak</span>
+        </Link>
+
+        <div className="flex items-center gap-6 mb-8">
+            <Link href="#" aria-label="Twitter">
+                <Twitter className="h-6 w-6 text-gray-500 transition-colors hover:text-gray-800" />
+            </Link>
+            <Link href="#" aria-label="GitHub">
+                <Github className="h-6 w-6 text-gray-500 transition-colors hover:text-gray-800" />
+            </Link>
         </div>
-        <div className="mt-12 border-t border-gray-200/60 pt-6 text-center text-sm text-gray-500">
+
+        <div className="text-sm text-gray-500">
           <p>© {new Date().getFullYear()} Daybreak. All rights reserved.</p>
+          <p className="mt-1">Design that feels right. Tech that works well.</p>
         </div>
+
       </div>
     </footer>
   );
