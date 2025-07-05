@@ -81,13 +81,13 @@ export default function Home() {
       </motion.h1>
       
       <motion.div 
-        className="relative w-full max-w-6xl h-[850px] mt-12 sm:mt-16 mx-auto"
+        className="relative w-full max-w-5xl h-[800px] mt-16 mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.div 
-          className="absolute top-2 left-[5%] w-48 h-64 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/30 overflow-hidden shadow-lg" 
+          className="absolute top-8 left-[10%] w-48 h-64 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/30 overflow-hidden shadow-lg" 
           variants={itemVariants}
           whileHover={{ scale: 1.05, y: -5, zIndex: 22 }}
           transition={{ type: 'spring', stiffness: 300 }}
@@ -96,7 +96,7 @@ export default function Home() {
         </motion.div>
         
         <motion.div 
-          className="absolute top-1/2 -translate-y-[45%] left-0 md:left-[10%] lg:left-[15%] w-[340px] bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-2xl space-y-6 z-20"
+          className="absolute top-1/2 -translate-y-1/2 left-[5%] w-[340px] bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-2xl space-y-6 z-20"
           variants={itemVariants}
            whileHover={{ scale: 1.02, y: -5, x: -5, zIndex: 21 }}
           transition={{ type: 'spring', stiffness: 300 }}
@@ -123,7 +123,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div 
-          className="absolute top-20 right-[2%] md:right-[5%] lg:right-[8%] w-[320px] h-[280px] sm:w-[380px] sm:h-[320px] bg-white/20 backdrop-blur-lg rounded-3xl border border-white/30 overflow-hidden shadow-xl" 
+          className="absolute top-24 right-[8%] w-[320px] h-[280px] sm:w-[380px] sm:h-[320px] bg-white/20 backdrop-blur-lg rounded-3xl border border-white/30 overflow-hidden shadow-xl" 
           variants={itemVariants}
           whileHover={{ scale: 1.05, y: -5, zIndex: 22 }}
           transition={{ type: 'spring', stiffness: 300 }}
@@ -137,7 +137,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div 
-          className="absolute bottom-20 right-[12%] md:right-[15%] lg:right-[18%] w-36 h-36 bg-white/60 backdrop-blur-xl rounded-[32px] border border-white/70 shadow-2xl flex flex-col items-center justify-center space-y-4"
+          className="absolute bottom-20 right-[15%] w-36 h-36 bg-white/60 backdrop-blur-xl rounded-[32px] border border-white/70 shadow-2xl flex flex-col items-center justify-center space-y-4"
           variants={itemVariants}
           whileHover={{ scale: 1.05, y: -5, zIndex: 22 }}
           transition={{ type: 'spring', stiffness: 300 }}
