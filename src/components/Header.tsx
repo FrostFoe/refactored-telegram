@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const DaybreakLogo = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-700">
@@ -10,18 +13,30 @@ const DaybreakLogo = () => (
 
 const navItems = ["Services", "Work", "Writing", "About", "Contact"];
 
+const MotionLink = motion(Link);
+
 const Header = () => {
   return (
-    <header className="fixed top-6 z-50 w-full flex justify-center">
+    <motion.header 
+      className="fixed top-6 z-50 w-full flex justify-center"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: 'spring', stiffness: 100, damping: 15, delay: 0.5 }}
+    >
       <div className="flex items-center gap-2 rounded-full bg-gray-100/50 backdrop-blur-lg border border-gray-200/60 shadow-md px-2 py-1.5 text-gray-700">
-        <Link href="/" className="flex items-center gap-2 px-3">
+        <MotionLink 
+          href="/" 
+          className="flex items-center gap-2 px-3"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
             <DaybreakLogo />
             <span className="font-medium text-sm">Daybreak</span>
-        </Link>
+        </MotionLink>
         <div className="w-px h-5 bg-gray-200/80 mx-1"></div>
         <nav className="flex items-center">
           {navItems.map((item) => (
-            <Link
+            <MotionLink
               key={item}
               href="#"
               className={`text-sm px-4 py-1 rounded-full transition-colors duration-200 ${
@@ -29,13 +44,16 @@ const Header = () => {
                   ? 'bg-white text-gray-800 shadow-sm'
                   : 'text-gray-500 hover:text-gray-800'
               }`}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
               {item}
-            </Link>
+            </MotionLink>
           ))}
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
