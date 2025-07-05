@@ -29,7 +29,7 @@ const PostItem = ({ post }: { post: Post }) => (
       <div className="flex justify-between items-start mb-4">
         <Badge
           variant={post.tag === 'Design' ? 'default' : post.tag === 'Strategy' ? 'secondary' : 'outline'}
-          className={`${post.tag === 'Design' && 'bg-blue-500 border-blue-500 text-white'} ${post.tag === 'Strategy' && 'bg-purple-500 border-purple-500 text-white'} ${post.tag === 'Technology' && 'bg-gray-800 border-gray-800 text-white'}`}
+          className="capitalize"
         >
           {post.tag}
         </Badge>

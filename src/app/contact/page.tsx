@@ -44,9 +44,9 @@ export default function ContactPage() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className="text-center mb-16"
       >
-        <h1 className="text-3xl md:text-5xl font-medium text-gray-800">Let's build together.</h1>
+        <h1 className="text-3xl md:text-5xl font-medium text-gray-800">Let's create something great.</h1>
         <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-          Have a project in mind or just want to say hello? We'd love to hear from you.
+          Whether you have a groundbreaking idea or just want to chat about design, we're here to listen.
         </p>
       </motion.div>
 

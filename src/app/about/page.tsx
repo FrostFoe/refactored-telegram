@@ -23,11 +23,18 @@ export default function AboutPage() {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center px-4 pt-32 pb-16">
       <motion.div
-        className="w-full max-w-4xl mx-auto text-center space-y-8"
+        className="w-full max-w-4xl mx-auto text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
+        <motion.h1
+          className="text-3xl md:text-5xl font-medium text-gray-800 mb-12"
+          variants={itemVariants}
+        >
+          Our Mission
+        </motion.h1>
+        <div className="space-y-8">
           <motion.p
             className="text-2xl md:text-3xl text-gray-600 leading-relaxed"
             variants={itemVariants}
@@ -46,6 +53,7 @@ export default function AboutPage() {
           >
             Design that feels right. Tech that works well.
           </motion.p>
+        </div>
       </motion.div>
     </div>
   );
