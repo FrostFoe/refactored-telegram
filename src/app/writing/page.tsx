@@ -1,3 +1,4 @@
+
 'use client';
 
 import { posts, type Post } from '@/lib/writing';
@@ -31,7 +32,7 @@ const PostCard = ({ post }: { post: Post }) => (
   >
     <Link href="#" className="block p-8 rounded-3xl bg-white/40 backdrop-blur-2xl border border-white/50 shadow-xl group transition-colors duration-300 hover:border-white/80">
       <div className="flex justify-between items-start">
-        <Badge 
+        <Badge
           variant={post.tag === 'Design' ? 'default' : post.tag === 'Strategy' ? 'secondary' : 'outline'}
           className={`${post.tag === 'Design' && 'bg-blue-500 border-blue-500 text-white'} ${post.tag === 'Strategy' && 'bg-purple-500 border-purple-500 text-white'} ${post.tag === 'Technology' && 'bg-gray-800 border-gray-800 text-white'}`}
         >
