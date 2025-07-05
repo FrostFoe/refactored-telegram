@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const DaybreakLogo = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-700">
@@ -11,11 +12,19 @@ const DaybreakLogo = () => (
     </svg>
 )
 
-const navItems = ["Services", "Work", "Writing", "About", "Contact"];
+const navItems = [
+  { name: 'Work', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Writing', href: '/writing' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
+];
 
 const MotionLink = motion(Link);
 
 const Header = () => {
+  const pathname = usePathname();
+
   return (
     <motion.header 
       className="fixed top-6 z-50 w-full flex justify-center"
@@ -37,18 +46,25 @@ const Header = () => {
         <nav className="flex items-center">
           {navItems.map((item) => (
             <MotionLink
-              key={item}
-              href="#"
-              className={`text-sm px-4 py-1 rounded-full transition-colors duration-200 ${
-                item === 'Work'
-                  ? 'bg-white text-gray-800 shadow-sm'
+              key={item.name}
+              href={item.href}
+              className={`relative text-sm px-4 py-1 rounded-full transition-colors duration-200 ${
+                pathname === item.href
+                  ? 'text-gray-800'
                   : 'text-gray-500 hover:text-gray-800'
               }`}
-              whileHover={{ scale: 1.1, y: -2 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
-              {item}
+              {item.name}
+              {pathname === item.href && (
+                <motion.div
+                  className="absolute inset-0 bg-white rounded-full shadow-sm -z-10"
+                  layoutId="active-nav-link"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
             </MotionLink>
           ))}
         </nav>

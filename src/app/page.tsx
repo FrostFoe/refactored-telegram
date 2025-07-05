@@ -11,21 +11,21 @@ const projects: Project[] = [
     tag: 'Strategy',
     title: 'Dropbox',
     date: 'January 15, 2025',
-    image: 'https://via.placeholder.com/150/111827/FFFFFF?text=.'
+    image: 'https://placehold.co/150x150.png'
   },
   {
     id: 'superpower',
     tag: 'Superpower',
     title: 'Superpower',
     date: 'June 6, 2024',
-    image: 'https://via.placeholder.com/150/111827/FFFFFF?text=.'
+    image: 'https://placehold.co/150x150.png'
   },
   {
     id: 'adidas',
     tag: 'Adidas',
     title: 'Adidas x Crypto the Game',
     date: 'May 15, 2024',
-    image: 'https://via.placeholder.com/150/111827/FFFFFF?text=.'
+    image: 'https://placehold.co/150x150.png'
   }
 ];
 
@@ -92,7 +92,7 @@ export default function Home() {
           whileHover={{ scale: 1.05, y: -5, rotate: -8 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <Image src="https://via.placeholder.com/300/e2e8f0/e2e8f0?text=." alt="Abstract colors" fill className="object-cover opacity-50" data-ai-hint="abstract color blur"/>
+          <Image src="https://placehold.co/300x300.png" alt="Abstract colors" fill className="object-cover opacity-50" data-ai-hint="abstract color blur"/>
         </motion.div>
         
         <motion.div 
@@ -117,7 +117,7 @@ export default function Home() {
           whileTap={{ scale: 0.97 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-            <Image src="https://via.placeholder.com/600x400/000000/FFFFFF?text=." alt="Adeline Preview" fill className="object-cover" data-ai-hint="code editor landscape" />
+            <Image src="https://placehold.co/600x400.png" alt="Adeline Preview" fill className="object-cover" data-ai-hint="code editor landscape" />
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-between">
                 <div>
                     <h3 className="text-white font-semibold">Adeline</h3>
@@ -144,7 +144,7 @@ export default function Home() {
                 animate={{ y: [0, -4, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
              >
-                <Image src="https://via.placeholder.com/400/f1f5f9/f1f5f9?text=." alt="Unicorn illustration" fill className="object-cover" data-ai-hint="unicorn abstract" />
+                <Image src="https://placehold.co/400x400.png" alt="Unicorn illustration" fill className="object-cover" data-ai-hint="unicorn abstract" />
              </motion.div>
         </motion.div>
 
