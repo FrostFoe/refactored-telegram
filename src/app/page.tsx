@@ -1,6 +1,6 @@
-import type { Project } from '@/types';
 import Image from 'next/image';
 import React from 'react';
+import type { Project } from '@/types';
 
 const projects: Project[] = [
   {
@@ -8,21 +8,21 @@ const projects: Project[] = [
     tag: 'Strategy',
     title: 'Dropbox',
     date: 'January 15, 2025',
-    image: 'https://placehold.co/80x80'
+    image: 'https://placehold.co/80x80/000000'
   },
   {
     id: 'superpower',
     tag: 'Superpower',
     title: 'Superpower',
     date: 'June 6, 2024',
-    image: 'https://placehold.co/80x80'
+    image: 'https://placehold.co/80x80/333333'
   },
   {
     id: 'adidas',
     tag: 'Adidas',
     title: 'Adidas x Crypto the Game',
     date: 'May 15, 2024',
-    image: 'https://placehold.co/80x80'
+    image: 'https://placehold.co/80x80/f0f0f0'
   }
 ];
 
@@ -52,7 +52,7 @@ export default function Home() {
       
       <div className="relative w-full max-w-5xl h-[550px] mt-20 mx-auto scale-90 md:scale-100">
         <div className="absolute top-24 left-48 w-48 h-32 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/30 overflow-hidden shadow-lg" style={{ transform: 'rotate(-5deg)' }}>
-          <Image src="https://placehold.co/300x200" alt="Abstract colors" fill objectFit="cover" className="opacity-50" data-ai-hint="abstract color blur"/>
+          <Image src="https://placehold.co/300x200/f0f0f0" alt="Abstract colors" fill objectFit="cover" className="opacity-50" data-ai-hint="abstract color blur"/>
         </div>
         
         <div className="absolute top-1/2 -translate-y-[45%] left-12 w-72 bg-white/40 backdrop-blur-2xl rounded-3xl p-5 border border-white/50 shadow-2xl space-y-5" style={{ transform: 'rotate(-8deg)' }}>
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
 
         <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[500px] h-[375px] bg-gray-900/80 backdrop-blur-sm rounded-3xl border border-white/10 overflow-hidden shadow-2xl z-10">
-            <Image src="https://placehold.co/800x600" alt="Adeline Preview" fill objectFit="cover" data-ai-hint="code editor landscape" />
+            <Image src="https://placehold.co/800x600/000000" alt="Adeline Preview" fill objectFit="cover" data-ai-hint="code editor landscape" />
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-between">
                 <div>
                     <h3 className="text-white font-semibold">Adeline</h3>
@@ -78,7 +78,7 @@ export default function Home() {
         </div>
 
         <div className="absolute top-10 right-16 w-80 h-64 bg-white/20 backdrop-blur-lg rounded-3xl border border-white/30 overflow-hidden shadow-xl" style={{ transform: 'rotate(6deg)' }}>
-             <Image src="https://placehold.co/400x300" alt="Unicorn illustration" fill objectFit="cover" data-ai-hint="unicorn abstract" />
+             <Image src="https://placehold.co/400x300/ffffff" alt="Unicorn illustration" fill objectFit="cover" data-ai-hint="unicorn abstract" />
         </div>
 
         <div className="absolute bottom-10 right-40 w-40 h-32 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/70 shadow-2xl flex flex-col items-center justify-center space-y-3" style={{ transform: 'rotate(10deg)' }}>
