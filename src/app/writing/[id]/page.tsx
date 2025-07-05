@@ -1,16 +1,28 @@
-'use server';
-
 import { getPostBySlug, getPosts } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
 interface PostPageProps {
   params: {
     id: string;
   };
+}
+
+export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+    const post = await getPostBySlug(params.id);
+    if (!post) {
+        return {
+            title: 'Post Not Found',
+        }
+    }
+    return {
+        title: post.frontmatter.title,
+        description: post.frontmatter.excerpt,
+    };
 }
 
 export async function generateStaticParams() {

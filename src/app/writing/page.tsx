@@ -1,9 +1,13 @@
-'use server';
-
 import { getPosts } from '@/lib/content';
 import type { PostFrontmatter } from '@/types';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Writing',
+    description: 'Exploring design, technology, and the space in between.',
+};
 
 const PostItem = ({ post }: { post: PostFrontmatter }) => (
   <div>

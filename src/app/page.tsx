@@ -1,26 +1,15 @@
-'use server';
-
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { getProjects, getPageContent } from '@/lib/content';
+import type { Metadata } from 'next';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-  },
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: 'spring', stiffness: 100 },
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { frontmatter } = await getPageContent('home');
+  return {
+    title: frontmatter.title,
+    description: frontmatter.subtitle,
+  };
+}
 
 export default async function Home() {
   const projects = await getProjects();

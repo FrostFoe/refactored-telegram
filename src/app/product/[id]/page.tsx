@@ -1,15 +1,27 @@
-'use server';
-
 import { getProjectBySlug, getProjects } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
 interface ProductPageProps {
   params: {
     id: string;
+  };
+}
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const project = await getProjectBySlug(params.id);
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+    }
+  }
+  return {
+    title: project.frontmatter.title,
+    description: project.frontmatter.description,
   };
 }
 

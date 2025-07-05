@@ -1,12 +1,15 @@
-'use server';
-
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { getPageContent } from '@/lib/content';
 import ContactForm from './ContactForm';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { frontmatter } = await getPageContent('contact');
+  return {
+    title: frontmatter.title,
+    description: frontmatter.subtitle,
+  };
+}
 
 export default async function ContactPage() {
   const { frontmatter } = await getPageContent('contact');
