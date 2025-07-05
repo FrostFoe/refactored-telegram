@@ -4,7 +4,6 @@ import { posts, type Post } from '@/lib/writing';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,20 +24,14 @@ const itemVariants = {
 
 const PostItem = ({ post }: { post: Post }) => (
   <motion.div variants={itemVariants}>
-    <Link href="#" className="block py-8 group">
-      <div className="flex justify-between items-start mb-4">
-        <Badge
-          variant={post.tag === 'Design' ? 'default' : post.tag === 'Strategy' ? 'secondary' : 'outline'}
-          className="capitalize"
-        >
-          {post.tag}
-        </Badge>
+    <Link href="#" className="block py-10 group">
+      <div className="mb-2">
         <span className="text-sm text-gray-500">{post.date}</span>
       </div>
-      <h3 className="text-2xl font-semibold text-gray-800">{post.title}</h3>
-      <p className="mt-2 text-gray-600 leading-relaxed">{post.excerpt}</p>
-      <div className="flex items-center mt-4 text-sm font-semibold text-gray-800 transition-colors duration-300 group-hover:text-primary">
-        Read More
+      <h3 className="text-3xl md:text-4xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{post.title}</h3>
+      <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed">{post.excerpt}</p>
+      <div className="flex items-center mt-6 text-md font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
+        Read Article
         <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </Link>
@@ -55,13 +48,13 @@ export default function WritingPage() {
         className="text-center mb-16"
       >
         <h1 className="text-3xl md:text-5xl font-medium text-gray-800">Thoughts & Ideas</h1>
-        <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
+        <p className="mt-4 text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
           Exploring design, technology, and the space in between.
         </p>
       </motion.div>
 
       <motion.div
-        className="w-full max-w-3xl divide-y divide-gray-200/60"
+        className="w-full max-w-4xl divide-y divide-gray-200/60"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

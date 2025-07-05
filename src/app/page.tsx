@@ -15,8 +15,8 @@ export default function Home() {
         <h1 className="text-4xl md:text-6xl font-medium text-gray-800 max-w-3xl leading-tight">
           We build digital experiences that feel like the future.
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
-          Daybreak is a design and technology studio crafting beautiful, intuitive, and high-performance web and software products.
+        <p className="mt-6 text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          Daybreak is a design and technology studio crafting beautiful, intuitive, and high-performance web and software products that resonate with users and drive business goals.
         </p>
       </motion.div>
     </div>
