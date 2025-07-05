@@ -17,6 +17,8 @@ const formSchema = z.object({
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
+const MotionButton = motion(Button);
+
 export default function ContactPage() {
     const { toast } = useToast();
     const form = useForm<z.infer<typeof formSchema>>({
@@ -98,7 +100,16 @@ export default function ContactPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" size="lg" className="w-full">Send Message</Button>
+              <MotionButton
+                type="submit"
+                size="lg"
+                className="w-full"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              >
+                Send Message
+              </MotionButton>
             </form>
           </Form>
         </motion.div>
@@ -108,14 +119,22 @@ export default function ContactPage() {
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.6 }}
             className="space-y-6"
         >
-            <div className="bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-xl">
+            <motion.div
+                className="bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-xl"
+                whileHover={{ y: -5, scale: 1.03 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+            >
                 <h3 className="font-semibold text-gray-800 mb-2 flex items-center"><Mail className="w-4 h-4 mr-2" /> Email</h3>
                 <p className="text-gray-600">hello@daybreak.studio</p>
-            </div>
-            <div className="bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-xl">
+            </motion.div>
+            <motion.div
+                className="bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-xl"
+                whileHover={{ y: -5, scale: 1.03 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+            >
                 <h3 className="font-semibold text-gray-800 mb-2 flex items-center"><MapPin className="w-4 h-4 mr-2" /> Based In</h3>
                 <p className="text-gray-600">The Cloud, Everywhere</p>
-            </div>
+            </motion.div>
         </motion.div>
       </div>
     </div>

@@ -80,13 +80,13 @@ export default function Home() {
       </motion.h1>
       
       <motion.div 
-        className="relative w-full max-w-7xl h-[800px] md:h-[900px] mt-12 sm:mt-16 mx-auto"
+        className="relative w-full max-w-7xl h-[900px] md:h-[1000px] mt-12 sm:mt-16 mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.div 
-          className="absolute top-24 left-0 sm:left-4 md:left-8 lg:left-[5%] w-36 h-28 md:w-48 md:h-36 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/30 overflow-hidden shadow-lg" 
+          className="absolute top-20 lg:top-24 left-0 sm:left-4 md:left-8 lg:left-[10%] w-36 h-28 md:w-48 md:h-36 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/30 overflow-hidden shadow-lg" 
           style={{ transform: 'rotate(-6deg)' }}
           variants={itemVariants}
           whileHover={{ scale: 1.05, y: -5, rotate: -8 }}
@@ -96,7 +96,7 @@ export default function Home() {
         </motion.div>
         
         <motion.div 
-          className="absolute top-1/2 -translate-y-[60%] left-0 sm:left-8 md:left-12 lg:left-[15%] w-60 sm:w-64 md:w-72 bg-white/40 backdrop-blur-2xl rounded-3xl p-4 md:p-5 border border-white/50 shadow-2xl space-y-3 md:space-y-5"
+          className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-8 md:left-12 lg:left-[5%] w-60 sm:w-64 md:w-72 bg-white/40 backdrop-blur-2xl rounded-3xl p-4 md:p-5 border border-white/50 shadow-2xl space-y-3 md:space-y-5"
           style={{ transform: 'rotate(-8deg)' }}
           variants={itemVariants}
           whileHover={{ scale: 1.05, y: -5, rotate: -10 }}
@@ -134,7 +134,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div 
-          className="absolute top-10 right-0 sm:right-4 md:right-8 lg:right-[5%] w-48 h-40 md:w-72 md:h-60 bg-white/20 backdrop-blur-lg rounded-3xl border border-white/30 overflow-hidden shadow-xl" 
+          className="absolute top-16 lg:top-20 right-0 sm:right-4 md:right-8 lg:right-[10%] w-48 h-40 md:w-72 md:h-60 bg-white/20 backdrop-blur-lg rounded-3xl border border-white/30 overflow-hidden shadow-xl" 
           style={{ transform: 'rotate(7deg)' }}
           variants={itemVariants}
           whileHover={{ scale: 1.05, y: -5, rotate: 9 }}
@@ -149,7 +149,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div 
-          className="absolute bottom-12 right-0 sm:right-8 md:right-12 lg:right-[15%] w-32 h-28 md:w-44 md:h-36 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/70 shadow-2xl flex flex-col items-center justify-center space-y-3" 
+          className="absolute bottom-16 lg:bottom-20 right-0 sm:right-8 md:right-12 lg:right-[5%] w-32 h-28 md:w-44 md:h-36 bg-white/60 backdrop-blur-xl rounded-3xl border border-white/70 shadow-2xl flex flex-col items-center justify-center space-y-3" 
           style={{ transform: 'rotate(12deg)' }}
           variants={itemVariants}
           whileHover={{ scale: 1.05, y: -5, rotate: 14 }}

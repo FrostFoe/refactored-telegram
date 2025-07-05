@@ -67,13 +67,13 @@ export default function ServicesPage() {
         {services.map((service) => (
           <motion.div
             key={service.title}
-            className="bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-xl text-center flex flex-col items-center"
+            className="bg-white/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/50 shadow-xl text-center flex flex-col items-center group"
             variants={itemVariants}
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
             <div className="w-16 h-16 rounded-full bg-white/50 flex items-center justify-center mb-6 shadow-inner">
-              <service.icon className="w-8 h-8 text-gray-700" />
+              <service.icon className="w-8 h-8 text-gray-700 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
             </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
             <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
