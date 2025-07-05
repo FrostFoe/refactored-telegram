@@ -1,15 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
-import { CartProvider } from '@/context/CartContext';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import FloatingCart from '@/components/FloatingCart';
-import KonamiListener from '@/components/KonamiListener';
 
 export const metadata: Metadata = {
-  title: 'CosmoCart',
-  description: 'Your portal to the universe of interstellar fashion.',
+  title: 'Daybreak',
+  description: 'A design and technology studio.',
 };
 
 export default function RootLayout({
@@ -18,24 +13,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-body antialiased bg-background text-foreground">
-        <CartProvider>
-          <div className="relative flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow z-10">{children}</main>
-            <Footer />
-            <FloatingCart />
-          </div>
-          <Toaster />
-          <KonamiListener />
-        </CartProvider>
+      <body className="font-sans antialiased">
+        <Header />
+        <main className="relative">{children}</main>
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-gray-200/80 rounded-full" />
       </body>
     </html>
   );
