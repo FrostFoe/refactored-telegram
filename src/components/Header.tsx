@@ -1,9 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Menu } from 'lucide-react';
 
 const DaybreakLogo = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-700">
@@ -24,41 +27,42 @@ const MotionLink = motion(Link);
 
 const Header = () => {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <motion.header 
-      className="fixed top-4 z-50 w-full flex justify-center"
-      initial={{ y: -20, opacity: 0 }}
+      className="fixed top-4 z-50 w-full flex justify-center px-4"
+      initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
+      transition={{ duration: 0.7, ease: "easeInOut", delay: 0.2 }}
     >
-      <div className="flex items-center gap-2 rounded-full bg-gray-100/50 backdrop-blur-lg border border-gray-200/60 shadow-md px-2 sm:px-3 py-2 text-gray-700">
+      <div className="w-full md:w-auto flex items-center justify-between rounded-full bg-gray-100/50 backdrop-blur-lg border border-gray-200/60 shadow-md px-3 py-2 text-gray-700">
         <MotionLink 
           href="/" 
-          className="flex items-center gap-2 px-3"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
+          className="flex items-center gap-2"
+          whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+          whileTap={{ scale: 0.98 }}
         >
             <DaybreakLogo />
             <span className="font-medium text-sm hidden sm:inline">Daybreak</span>
         </MotionLink>
-        <div className="w-px h-5 bg-gray-200/80 mx-1 hidden sm:block"></div>
-        <nav className="flex items-center">
+
+        {/* Desktop Nav */}
+        <div className="w-px h-5 bg-gray-200/80 mx-2 hidden md:block"></div>
+        <nav className="hidden md:flex items-center">
           {navItems.map((item) => {
             const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/product'));
             return (
               <MotionLink
                 key={item.name}
                 href={item.href}
-                className={`relative text-sm px-3 sm:px-4 py-1.5 rounded-full transition-colors duration-200 ${
+                className={`relative text-sm px-4 py-1.5 rounded-full transition-colors duration-200 ${
                   isActive
                     ? 'text-gray-800'
                     : 'text-gray-500 hover:text-gray-800'
                 }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                whileTap={{ scale: 0.98 }}
               >
                 {item.name}
                 {isActive && (
@@ -72,6 +76,37 @@ const Header = () => {
             )
           })}
         </nav>
+
+        {/* Mobile Nav Trigger */}
+        <div className="md:hidden">
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[280px]">
+              <nav className="flex flex-col space-y-4 pt-10">
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/product'));
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`text-lg font-medium transition-colors ${
+                        isActive ? 'text-primary' : 'text-gray-600 hover:text-primary'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                })}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </motion.header>
   );
