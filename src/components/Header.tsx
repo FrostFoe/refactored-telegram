@@ -47,7 +47,6 @@ const Header = () => {
             <span className="font-medium text-sm hidden sm:inline">FrostFoe</span>
         </MotionLink>
 
-        {/* Desktop Nav */}
         <div className="w-px h-5 bg-gray-200/80 mx-2 hidden md:block"></div>
         <nav className="hidden md:flex items-center">
           {navItems.map((item) => {
@@ -77,7 +76,6 @@ const Header = () => {
           })}
         </nav>
 
-        {/* Mobile Nav Trigger */}
         <div className="md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
