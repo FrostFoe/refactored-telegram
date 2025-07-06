@@ -17,7 +17,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-tiro)", "var(--font-inter)", "sans-serif"],
+        sans: ["var(--font-tiro)", "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",
