@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import type { ProjectFrontmatter } from '@/types';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
+import { Badge } from '@/components/ui/badge';
 
 export default function WorkPageClient({ projects, frontmatter }: { projects: ProjectFrontmatter[], frontmatter: any }) {
   const containerVariants = {
@@ -91,6 +92,11 @@ export default function WorkPageClient({ projects, frontmatter }: { projects: Pr
                             <span className="text-base md:text-lg text-gray-400 mt-1 sm:mt-0">{project.year}</span>
                         </div>
                         <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {project.services.slice(0, 3).map((service) => (
+                              <Badge key={service} variant="secondary">{service}</Badge>
+                          ))}
+                        </div>
                         <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
                             প্রকল্প দেখুন
                             <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />

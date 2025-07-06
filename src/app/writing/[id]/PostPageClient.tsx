@@ -6,8 +6,10 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import type { PostFrontmatter } from '@/types';
+import { Badge } from '@/components/ui/badge';
 
-export default function PostPageClient({ post }: { post: any }) {
+export default function PostPageClient({ post }: { post: { frontmatter: PostFrontmatter, content: string } }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -55,7 +57,7 @@ export default function PostPageClient({ post }: { post: any }) {
         
         <motion.article>
           {post.frontmatter.image && (
-            <motion.div className="mb-8 md:mb-12 overflow-hidden rounded-lg" variants={itemVariants}>
+            <motion.div className="mb-8 md:mb-12 overflow-hidden rounded-lg shadow-lg" variants={itemVariants}>
               <Image
                 src={post.frontmatter.image}
                 alt={post.frontmatter.title}
@@ -71,6 +73,11 @@ export default function PostPageClient({ post }: { post: any }) {
           <motion.header className="mb-8 text-center" variants={itemVariants}>
             <p className="text-base md:text-lg text-gray-500 mb-2">{post.frontmatter.date}</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{post.frontmatter.title}</h1>
+            <div className="mt-4 flex flex-wrap gap-2 justify-center">
+                {post.frontmatter.tags.map((tag: string) => (
+                    <Badge key={tag} variant="outline">{tag}</Badge>
+                ))}
+            </div>
           </motion.header>
 
           <motion.div 

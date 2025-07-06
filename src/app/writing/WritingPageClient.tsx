@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Badge } from '@/components/ui/badge';
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -51,6 +52,11 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
           </div>
           <h3 className="text-2xl sm:text-3xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{post.title}</h3>
           <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{post.excerpt}</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary" className="font-normal">{tag}</Badge>
+              ))}
+          </div>
           <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
             প্রবন্ধটি পড়ুন
             <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
