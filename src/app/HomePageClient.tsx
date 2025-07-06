@@ -1,6 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const DaybreakLogo = () => (
     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-700">
@@ -55,6 +58,13 @@ export default function HomePageClient() {
       >
         একটি ডিজাইন এবং প্রযুক্তি স্টুডিও যা ডিজিটাল অভিজ্ঞতা তৈরি করে যা সঠিক মনে হয় এবং ভাল কাজ করে।
       </motion.p>
+      <motion.div variants={itemVariants} className="mt-10">
+        <Button asChild size="lg" className="py-7 text-base md:text-lg">
+          <Link href="/work">
+            আমাদের কাজ দেখুন <ArrowRight className="ml-2 w-5 h-5" />
+          </Link>
+        </Button>
+      </motion.div>
     </motion.div>
   );
 }

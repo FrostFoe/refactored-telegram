@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { ProjectFrontmatter } from '@/types';
+import { Card } from '@/components/ui/card';
 
 export default function WorkPageClient({ projects, frontmatter }: { projects: ProjectFrontmatter[], frontmatter: any }) {
   const containerVariants = {
@@ -59,21 +60,23 @@ export default function WorkPageClient({ projects, frontmatter }: { projects: Pr
       </motion.div>
 
       <motion.div
-        className="w-full max-w-4xl divide-y divide-gray-200/60"
+        className="w-full max-w-4xl space-y-8"
         variants={containerVariants}
       >
         {projects.map((project) => (
             <motion.div key={project.slug} variants={itemVariants}>
-                <Link href={`/product/${project.slug}`} className="block py-8 md:py-10 group">
-                    <div className="flex justify-between items-center mb-2">
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                        <span className="text-base md:text-lg text-gray-400">{project.year}</span>
+                <Link href={`/product/${project.slug}`} className="block group">
+                  <Card className="p-6 md:p-8 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+                    <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                        <h3 className="text-2xl sm:text-3xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
+                        <span className="text-base md:text-lg text-gray-400 mt-1 sm:mt-0">{project.year}</span>
                     </div>
                     <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
-                    <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-transform duration-300 ease-in-out opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0">
+                    <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
                         প্রকল্প দেখুন
                         <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                     </div>
+                  </Card>
                 </Link>
             </motion.div>
         ))}

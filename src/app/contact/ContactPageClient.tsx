@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Mail, MapPin } from 'lucide-react';
 import ContactForm from './ContactForm';
+import { Card } from '@/components/ui/card';
 
 export default function ContactPageClient({ frontmatter }: { frontmatter: any }) {
   const containerVariants = {
@@ -47,29 +48,34 @@ export default function ContactPageClient({ frontmatter }: { frontmatter: any })
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full max-w-6xl">
         <motion.div
-          className="md:col-span-2 bg-white/50 border border-gray-200/80 p-6 md:p-8 rounded-lg shadow-sm"
+          className="md:col-span-2"
           variants={itemVariants}
         >
-          <ContactForm />
+          <Card className="p-6 md:p-8">
+            <ContactForm />
+          </Card>
         </motion.div>
         <motion.div
-            className="space-y-8"
             variants={itemVariants}
         >
-            <div>
-                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2 flex items-center"><Mail className="w-5 h-5 mr-3 text-gray-500" /> ইমেল</h3>
-                <p className="text-base md:text-lg text-gray-600">hello@daybreak.studio</p>
-            </div>
-            <div>
-                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2 flex items-center"><MapPin className="w-5 h-5 mr-3 text-gray-500" /> অবস্থান</h3>
-                <p className="text-base md:text-lg text-gray-600">ক্লাউড, সর্বত্র</p>
-            </div>
-             <div>
-                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2">কথোপকথন শুরু করুন</h3>
-                <p className="text-base md:text-lg text-gray-600">
-                    আমরা সবসময় নতুন প্রকল্প, সৃজনশীল ধারণা, বা স্বপ্নদর্শী কিছুর অংশ হওয়ার সুযোগ নিয়ে আলোচনা করার জন্য উন্মুক্ত।
-                </p>
-            </div>
+            <Card className="p-6 md:p-8">
+                <div className="space-y-8">
+                    <div>
+                        <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2 flex items-center"><Mail className="w-5 h-5 mr-3 text-gray-500" /> ইমেল</h3>
+                        <p className="text-base md:text-lg text-gray-600">hello@daybreak.studio</p>
+                    </div>
+                    <div>
+                        <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2 flex items-center"><MapPin className="w-5 h-5 mr-3 text-gray-500" /> অবস্থান</h3>
+                        <p className="text-base md:text-lg text-gray-600">ক্লাউড, সর্বত্র</p>
+                    </div>
+                    <div>
+                        <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2">কথোপকথন শুরু করুন</h3>
+                        <p className="text-base md:text-lg text-gray-600">
+                            আমরা সবসময় নতুন প্রকল্প, সৃজনশীল ধারণা, বা স্বপ্নদর্শী কিছুর অংশ হওয়ার সুযোগ নিয়ে আলোচনা করার জন্য উন্মুক্ত।
+                        </p>
+                    </div>
+                </div>
+            </Card>
         </motion.div>
       </div>
     </motion.div>
