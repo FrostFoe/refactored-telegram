@@ -1,9 +1,8 @@
 'use client';
 
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import { motion } from 'framer-motion';
 
-export default function ServicesPageClient({ frontmatter, content }: { frontmatter: any, content: string }) {
+export default function ServicesPageClient({ frontmatter, children }: { frontmatter: any, children: React.ReactNode }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -43,10 +42,9 @@ export default function ServicesPageClient({ frontmatter, content }: { frontmatt
           {frontmatter.title}
         </motion.h1>
         <motion.div 
-          className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed text-left"
           variants={itemVariants}
         >
-            <MDXRemote source={content} />
+            {children}
         </motion.div>
       </div>
     </motion.div>

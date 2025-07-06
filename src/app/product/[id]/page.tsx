@@ -2,6 +2,7 @@ import { getProjectBySlug, getProjects } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import ProductPageClient from './ProductPageClient';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
 interface ProductPageProps {
   params: {
@@ -36,5 +37,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  return <ProductPageClient project={project} />;
+  return (
+    <ProductPageClient frontmatter={project.frontmatter}>
+      <div className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed">
+        <MDXRemote source={project.content} />
+      </div>
+    </ProductPageClient>
+  );
 }

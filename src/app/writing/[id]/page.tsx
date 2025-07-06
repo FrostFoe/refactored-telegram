@@ -2,6 +2,7 @@ import { getPostBySlug, getPosts } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import PostPageClient from './PostPageClient';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
 interface PostPageProps {
   params: {
@@ -36,5 +37,11 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  return <PostPageClient post={post} />;
+  return (
+    <PostPageClient frontmatter={post.frontmatter}>
+      <div className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed">
+        <MDXRemote source={post.content} />
+      </div>
+    </PostPageClient>
+  );
 }

@@ -1,6 +1,5 @@
 'use client';
 
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -9,7 +8,7 @@ import Image from 'next/image';
 import type { PostFrontmatter } from '@/types';
 import { Badge } from '@/components/ui/badge';
 
-export default function PostPageClient({ post }: { post: { frontmatter: PostFrontmatter, content: string } }) {
+export default function PostPageClient({ frontmatter, children }: { frontmatter: PostFrontmatter, children: React.ReactNode }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -56,11 +55,11 @@ export default function PostPageClient({ post }: { post: { frontmatter: PostFron
         </motion.div>
         
         <motion.article>
-          {post.frontmatter.image && (
+          {frontmatter.image && (
             <motion.div className="mb-8 md:mb-12 overflow-hidden rounded-lg shadow-lg" variants={itemVariants}>
               <Image
-                src={post.frontmatter.image}
-                alt={post.frontmatter.title}
+                src={frontmatter.image}
+                alt={frontmatter.title}
                 width={1200}
                 height={600}
                 className="object-cover w-full"
@@ -71,20 +70,19 @@ export default function PostPageClient({ post }: { post: { frontmatter: PostFron
           )}
 
           <motion.header className="mb-8 text-center" variants={itemVariants}>
-            <p className="text-base md:text-lg text-gray-500 mb-2">{post.frontmatter.date}</p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{post.frontmatter.title}</h1>
+            <p className="text-base md:text-lg text-gray-500 mb-2">{frontmatter.date}</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{frontmatter.title}</h1>
             <div className="mt-4 flex flex-wrap gap-2 justify-center">
-                {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => (
+                {frontmatter.tags && frontmatter.tags.map((tag: string) => (
                     <Badge key={tag} variant="outline">{tag}</Badge>
                 ))}
             </div>
           </motion.header>
 
           <motion.div 
-            className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed"
             variants={itemVariants}
           >
-            <MDXRemote source={post.content} />
+            {children}
           </motion.div>
         </motion.article>
       </div>

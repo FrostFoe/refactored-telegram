@@ -1,6 +1,5 @@
 'use client';
 
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Globe } from 'lucide-react';
 import Link from 'next/link';
@@ -9,7 +8,7 @@ import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import type { ProjectFrontmatter } from '@/types';
 
-export default function ProductPageClient({ project }: { project: { frontmatter: ProjectFrontmatter, content: string } }) {
+export default function ProductPageClient({ frontmatter, children }: { frontmatter: ProjectFrontmatter, children: React.ReactNode }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -54,11 +53,11 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
         </motion.div>
         
         <motion.article>
-          {project.frontmatter.image && (
+          {frontmatter.image && (
             <motion.div className="mb-8 md:mb-12 overflow-hidden rounded-lg shadow-xl" variants={itemVariants}>
               <Image
-                src={project.frontmatter.image}
-                alt={project.frontmatter.title}
+                src={frontmatter.image}
+                alt={frontmatter.title}
                 width={1200}
                 height={600}
                 className="object-cover w-full"
@@ -69,31 +68,31 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
           )}
 
           <motion.header className="mb-8 text-center" variants={itemVariants}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{project.frontmatter.title}</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{frontmatter.title}</h1>
           </motion.header>
 
           <motion.div className="mb-8 md:mb-12 border-b border-t py-6" variants={itemVariants}>
             <div className="flex flex-wrap gap-x-12 gap-y-6 justify-center items-center text-center">
               <div>
                 <p className="text-sm text-gray-500 mb-1">Client</p>
-                <p className="font-semibold text-gray-800">{project.frontmatter.client}</p>
+                <p className="font-semibold text-gray-800">{frontmatter.client}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-1">Year</p>
-                <p className="font-semibold text-gray-800">{project.frontmatter.year}</p>
+                <p className="font-semibold text-gray-800">{frontmatter.year}</p>
               </div>
               <div className="flex-shrink-0">
                   <p className="text-sm text-gray-500 mb-1">Services</p>
                   <div className="flex flex-wrap gap-2 justify-center">
-                      {project.frontmatter.services && project.frontmatter.services.map((service: string) => (
+                      {frontmatter.services && frontmatter.services.map((service: string) => (
                           <Badge key={service} variant="secondary">{service}</Badge>
                       ))}
                   </div>
               </div>
-              {project.frontmatter.live_url && (
+              {frontmatter.live_url && (
                 <div className="flex-shrink-0">
                   <Button asChild variant="outline">
-                      <Link href={project.frontmatter.live_url} target="_blank" rel="noopener noreferrer">
+                      <Link href={frontmatter.live_url} target="_blank" rel="noopener noreferrer">
                           Live Website <Globe className="ml-2 h-4 w-4" />
                       </Link>
                   </Button>
@@ -103,10 +102,9 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
           </motion.div>
 
           <motion.div 
-            className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed"
             variants={itemVariants}
           >
-            <MDXRemote source={project.content} />
+            {children}
           </motion.div>
         </motion.article>
       </div>
