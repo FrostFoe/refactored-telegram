@@ -16,7 +16,7 @@ export async function generateMetadata({
   const project = await getProjectBySlug(params.id);
   if (!project) {
     return {
-      title: "প্রকল্প পাওয়া যায়নি",
+      title: "Project Not Found",
     };
   }
   return {
@@ -41,7 +41,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <ProductPageClient frontmatter={project.frontmatter}>
-      <div className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed">
+      <div className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed font-tiro">
         <MDXRemote source={project.content} />
       </div>
     </ProductPageClient>

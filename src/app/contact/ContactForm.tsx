@@ -40,8 +40,8 @@ export default function ContactForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "বার্তা পাঠানো হয়েছে!",
-      description: "ধন্যবাদ। আমি শীঘ্রই আপনার সাথে যোগাযোগ করব।",
+      title: "Message Sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
     });
     form.reset();
   }
@@ -58,7 +58,7 @@ export default function ContactForm() {
                 আপনার নাম
               </FormLabel>
               <FormControl>
-                <Input placeholder="আপনার নাম" {...field} className="py-6" />
+                <Input placeholder="Your Name" {...field} className="py-6" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -73,7 +73,7 @@ export default function ContactForm() {
                 আপনার ইমেইল
               </FormLabel>
               <FormControl>
-                <Input placeholder="আপনার ইমেইল" {...field} className="py-6" />
+                <Input placeholder="Your Email" {...field} className="py-6" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -89,7 +89,7 @@ export default function ContactForm() {
               </FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="আপনার প্রকল্প, আপনার দৃষ্টিভঙ্গি, আপনার চ্যালেঞ্জ সম্পর্কে আমাকে বলুন..."
+                  placeholder="Tell me about your project, your vision, your challenge..."
                   className="min-h-[150px]"
                   {...field}
                 />
@@ -108,7 +108,7 @@ export default function ContactForm() {
             size="lg"
             className="w-full py-7 text-base md:text-lg"
           >
-            বার্তা পাঠান <ArrowRight className="ml-2 w-5 h-5" />
+            Send Message <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>
       </form>

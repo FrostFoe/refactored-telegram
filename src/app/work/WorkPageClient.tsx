@@ -110,12 +110,11 @@ export default function WorkPageClient({
                     {project.description}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
-                    {project.services &&
-                      project.services.slice(0, 3).map((service) => (
-                        <Badge key={service} variant="secondary">
-                          {service}
-                        </Badge>
-                      ))}
+                    {project.services?.slice(0, 3).map((service) => (
+                      <Badge key={service} variant="secondary">
+                        {service}
+                      </Badge>
+                    ))}
                   </div>
                   <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
                     View Project

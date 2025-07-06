@@ -77,12 +77,11 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
               {post.excerpt}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {post.tags &&
-                post.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="font-normal">
-                    {tag}
-                  </Badge>
-                ))}
+              {post.tags?.map((tag) => (
+                <Badge key={tag} variant="secondary" className="font-normal">
+                  {tag}
+                </Badge>
+              ))}
             </div>
             <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
               Read Article

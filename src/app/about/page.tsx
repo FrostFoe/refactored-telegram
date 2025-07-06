@@ -15,7 +15,7 @@ export default async function AboutPage() {
 
   return (
     <AboutPageClient frontmatter={frontmatter}>
-      <div className="prose md:prose-lg lg:prose-xl max-w-none text-gray-600 text-left">
+      <div className="prose md:prose-lg lg:prose-xl max-w-none text-gray-600 text-left font-tiro">
         <MDXRemote source={content} />
       </div>
     </AboutPageClient>

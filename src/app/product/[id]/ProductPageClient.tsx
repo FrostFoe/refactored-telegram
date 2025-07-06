@@ -109,12 +109,11 @@ export default function ProductPageClient({
               <div className="flex-shrink-0">
                 <p className="text-sm text-gray-500 mb-1">Services</p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {frontmatter.services &&
-                    frontmatter.services.map((service: string) => (
-                      <Badge key={service} variant="secondary">
-                        {service}
-                      </Badge>
-                    ))}
+                  {frontmatter.services?.map((service: string) => (
+                    <Badge key={service} variant="secondary">
+                      {service}
+                    </Badge>
+                  ))}
                 </div>
               </div>
               {frontmatter.live_url && (

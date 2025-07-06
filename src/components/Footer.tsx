@@ -3,6 +3,7 @@
 import { Github, Twitter } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const DaybreakLogo = () => (
   <svg
@@ -25,6 +26,12 @@ const DaybreakLogo = () => (
 );
 
 const Footer = () => {
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <motion.footer
       className="relative z-10 border-t border-gray-200/60 mt-32"
@@ -69,7 +76,9 @@ const Footer = () => {
         </div>
 
         <div className="text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} FrostFoe. All rights reserved.</p>
+          {currentYear && (
+            <p>© {currentYear} FrostFoe. All rights reserved.</p>
+          )}
           <p className="mt-1">
             Design that feels right. Technology that works better.
           </p>

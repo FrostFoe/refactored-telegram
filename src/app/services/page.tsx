@@ -15,7 +15,7 @@ export default async function ServicesPage() {
 
   return (
     <ServicesPageClient frontmatter={frontmatter}>
-      <div className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed text-left">
+      <div className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed text-left font-tiro">
         <MDXRemote source={content} />
       </div>
     </ServicesPageClient>

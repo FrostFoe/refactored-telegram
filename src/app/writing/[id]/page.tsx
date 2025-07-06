@@ -16,7 +16,7 @@ export async function generateMetadata({
   const post = await getPostBySlug(params.id);
   if (!post) {
     return {
-      title: "পোস্ট পাওয়া যায়নি",
+      title: "Post Not Found",
     };
   }
   return {
@@ -41,7 +41,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <PostPageClient frontmatter={post.frontmatter}>
-      <div className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed">
+      <div className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed font-tiro">
         <MDXRemote source={post.content} />
       </div>
     </PostPageClient>
