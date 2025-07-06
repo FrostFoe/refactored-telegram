@@ -48,7 +48,7 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
             <Button variant="ghost" asChild className="text-gray-600 hover:text-gray-900">
                 <Link href="/work">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    কাজে ফিরে যান
+                    Back to Work
                 </Link>
             </Button>
         </motion.div>
@@ -75,15 +75,15 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
           <motion.div className="mb-8 md:mb-12 border-b border-t py-6" variants={itemVariants}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center items-center">
               <div>
-                <p className="text-sm text-gray-500 mb-1">ক্লায়েন্ট</p>
+                <p className="text-sm text-gray-500 mb-1">Client</p>
                 <p className="font-semibold text-gray-800">{project.frontmatter.client}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500 mb-1">বছর</p>
+                <p className="text-sm text-gray-500 mb-1">Year</p>
                 <p className="font-semibold text-gray-800">{project.frontmatter.year}</p>
               </div>
               <div className="col-span-2 md:col-span-1">
-                  <p className="text-sm text-gray-500 mb-1">পরিষেবা</p>
+                  <p className="text-sm text-gray-500 mb-1">Services</p>
                   <div className="flex flex-wrap gap-2 justify-center">
                       {project.frontmatter.services.map((service: string) => (
                           <Badge key={service} variant="secondary">{service}</Badge>
@@ -94,7 +94,7 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
                 <div className="col-span-2 md:col-span-1">
                   <Button asChild variant="outline" className="w-full">
                       <Link href={project.frontmatter.live_url} target="_blank" rel="noopener noreferrer">
-                          লাইভ ওয়েবসাইট <Globe className="ml-2 h-4 w-4" />
+                          Live Website <Globe className="ml-2 h-4 w-4" />
                       </Link>
                   </Button>
                 </div>

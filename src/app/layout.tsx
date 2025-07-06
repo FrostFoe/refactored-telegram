@@ -14,10 +14,10 @@ const tiro = Tiro_Bangla({
 
 export const metadata: Metadata = {
   title: {
-    default: 'ডেব্রিক',
-    template: '%s | ডেব্রিক',
+    default: 'FrostFoe | Web Designer & Developer',
+    template: '%s | FrostFoe',
   },
-  description: 'একটি ডিজাইন এবং প্রযুক্তি স্টুডিও।',
+  description: 'Portfolio of FrostFoe, a design & technology artisan.',
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn" className={`${inter.variable} ${tiro.variable}`}>
+    <html lang="en" className={`${inter.variable} ${tiro.variable}`}>
       <body className="font-sans antialiased">
         <Header />
         <main className="relative z-10">{children}</main>

@@ -98,7 +98,7 @@ export default function WorkPageClient({ projects, frontmatter }: { projects: Pr
                           ))}
                         </div>
                         <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
-                            প্রকল্প দেখুন
+                            View Project
                             <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                         </div>
                     </div>

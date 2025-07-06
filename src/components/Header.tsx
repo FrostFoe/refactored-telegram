@@ -16,11 +16,11 @@ const DaybreakLogo = () => (
 )
 
 const navItems = [
-  { name: 'কাজ', href: '/work' },
-  { name: 'পরিষেবা', href: '/services' },
-  { name: 'লেখা', href: '/writing' },
-  { name: 'পরিচিতি', href: '/about' },
-  { name: 'যোগাযোগ', href: '/contact' },
+  { name: 'Work', href: '/work' },
+  { name: 'Services', href: '/services' },
+  { name: 'Writing', href: '/writing' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const MotionLink = motion(Link);
@@ -44,7 +44,7 @@ const Header = () => {
           whileTap={{ scale: 0.98 }}
         >
             <DaybreakLogo />
-            <span className="font-medium text-sm hidden sm:inline">ডেব্রিক</span>
+            <span className="font-medium text-sm hidden sm:inline">FrostFoe</span>
         </MotionLink>
 
         {/* Desktop Nav */}
@@ -83,7 +83,7 @@ const Header = () => {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full">
                 <Menu className="h-5 w-5" />
-                <span className="sr-only">মেনু খুলুন</span>
+                <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px]">

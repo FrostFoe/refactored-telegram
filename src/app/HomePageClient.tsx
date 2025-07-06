@@ -50,13 +50,13 @@ export default function HomePageClient() {
         className="text-4xl sm:text-5xl md:text-6xl font-medium text-gray-800 mb-4"
         variants={itemVariants}
       >
-        ডেব্রিক
+        FrostFoe
       </motion.h1>
       <motion.p 
         className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
         variants={itemVariants}
       >
-        একটি ডিজাইন এবং প্রযুক্তি স্টুডিও যা ডিজিটাল অভিজ্ঞতা তৈরি করে যা সঠিক মনে হয় এবং ভাল কাজ করে।
+        A design &amp; technology artisan, crafting digital experiences that feel right and work better.
       </motion.p>
       <motion.div 
         variants={itemVariants} 
@@ -67,7 +67,7 @@ export default function HomePageClient() {
       >
         <Button asChild size="lg" className="py-7 text-base md:text-lg">
           <Link href="/work">
-            আমাদের কাজ দেখুন <ArrowRight className="ml-2 w-5 h-5" />
+            Explore My Work <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
         </Button>
       </motion.div>

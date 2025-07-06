@@ -12,9 +12,9 @@ import { useToast } from '@/hooks/use-toast';
 import { ArrowRight } from 'lucide-react';
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'নাম কমপক্ষে ২ অক্ষরের হতে হবে।' }),
-  email: z.string().email({ message: 'অনুগ্রহ করে একটি বৈধ ইমেল ঠিকানা লিখুন।' }),
-  message: z.string().min(10, { message: 'বার্তা কমপক্ষে ১০ অক্ষরের হতে হবে।' }),
+  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
+  email: z.string().email({ message: 'Please enter a valid email address.' }),
+  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
 export default function ContactForm() {
@@ -31,8 +31,8 @@ export default function ContactForm() {
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values);
         toast({
-            title: "বার্তা পাঠানো হয়েছে!",
-            description: "যোগাযোগ করার জন্য ধন্যবাদ। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।",
+            title: "Message Sent!",
+            description: "Thanks for reaching out. I'll get back to you soon.",
         });
         form.reset();
     }
@@ -45,9 +45,9 @@ export default function ContactForm() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm md:text-base font-medium text-gray-700">আপনার নাম</FormLabel>
+                    <FormLabel className="text-sm md:text-base font-medium text-gray-700">Your Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="আপনার নাম" {...field} className="py-6"/>
+                      <Input placeholder="Your name" {...field} className="py-6"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -58,9 +58,9 @@ export default function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm md:text-base font-medium text-gray-700">আপনার ইমেল</FormLabel>
+                    <FormLabel className="text-sm md:text-base font-medium text-gray-700">Your Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="আপনার ইমেল" {...field} className="py-6" />
+                      <Input placeholder="Your email" {...field} className="py-6" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -71,9 +71,9 @@ export default function ContactForm() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm md:text-base font-medium text-gray-700">আপনার বার্তা</FormLabel>
+                    <FormLabel className="text-sm md:text-base font-medium text-gray-700">Your Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="আপনার প্রকল্প, আপনার দৃষ্টিভঙ্গি, আপনার চ্যালেঞ্জ সম্পর্কে আমাদের বলুন..." className="min-h-[150px]" {...field} />
+                      <Textarea placeholder="Tell me about your project, your vision, your challenge..." className="min-h-[150px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -85,7 +85,7 @@ export default function ContactForm() {
                 transition={{ duration: 0.2, ease: "easeInOut" }}
               >
                 <Button type="submit" size="lg" className="w-full py-7 text-base md:text-lg">
-                    বার্তা পাঠান <ArrowRight className="ml-2 w-5 h-5" />
+                    Send Message <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
             </form>
