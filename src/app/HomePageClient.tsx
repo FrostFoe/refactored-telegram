@@ -1,17 +1,21 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import type { ProjectFrontmatter } from '@/types';
 
-export default function HomePageClient({ projects, frontmatter }: { projects: ProjectFrontmatter[], frontmatter: any }) {
+const DaybreakLogo = () => (
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-700">
+        <path d="M12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3ZM12 19C8.13 19 5 15.87 5 12C5 8.13 8.13 5 12 5C15.87 5 19 8.13 19 12C19 15.87 15.87 19 12 19Z" fill="currentColor"/>
+        <path d="M12 7C9.24 7 7 9.24 7 12H9C9 10.34 10.34 9 12 9V7Z" fill="currentColor"/>
+    </svg>
+)
+
+export default function HomePageClient() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
         delayChildren: 0.3,
       },
     },
@@ -23,61 +27,34 @@ export default function HomePageClient({ projects, frontmatter }: { projects: Pr
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
-        ease: "easeInOut",
-      },
-    },
-  };
-  
-  const headerItemVariants = {
-    hidden: { y: -20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
+        duration: 0.7,
         ease: "easeInOut",
       },
     },
   };
 
   return (
-    <motion.div 
-      className="w-full min-h-screen flex flex-col items-center px-4 pt-24 md:pt-32 pb-16"
+    <motion.div
+      className="w-full min-h-screen flex flex-col items-center justify-center text-center px-4"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <motion.div
-        className="text-center mb-12 md:mb-16"
-        variants={headerItemVariants}
-      >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{frontmatter.title}</h1>
-        <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          {frontmatter.subtitle}
-        </p>
+      <motion.div variants={itemVariants} className="mb-6">
+        <DaybreakLogo />
       </motion.div>
-
-      <motion.div
-        className="w-full max-w-4xl divide-y divide-gray-200/60"
-        variants={containerVariants}
+      <motion.h1 
+        className="text-4xl sm:text-5xl md:text-6xl font-medium text-gray-800 mb-4"
+        variants={itemVariants}
       >
-        {projects.map((project) => (
-            <motion.div key={project.slug} variants={itemVariants}>
-                <Link href={`/product/${project.slug}`} className="block py-8 md:py-10 group">
-                    <div className="flex justify-between items-center mb-2">
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                        <span className="text-base md:text-lg text-gray-400">{project.year}</span>
-                    </div>
-                    <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
-                    <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-transform duration-300 ease-in-out opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0">
-                        View Project
-                        <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-                    </div>
-                </Link>
-            </motion.div>
-        ))}
-      </motion.div>
+        Daybreak
+      </motion.h1>
+      <motion.p 
+        className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
+        variants={itemVariants}
+      >
+        A design and technology studio crafting digital experiences that feel right and work well.
+      </motion.p>
     </motion.div>
   );
 }

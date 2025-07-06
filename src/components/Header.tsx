@@ -13,7 +13,7 @@ const DaybreakLogo = () => (
 )
 
 const navItems = [
-  { name: 'Work', href: '/' },
+  { name: 'Work', href: '/work' },
   { name: 'Services', href: '/services' },
   { name: 'Writing', href: '/writing' },
   { name: 'About', href: '/about' },
@@ -30,7 +30,7 @@ const Header = () => {
       className="fixed top-4 z-50 w-full flex justify-center"
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
+      transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
     >
       <div className="flex items-center gap-2 rounded-full bg-gray-100/50 backdrop-blur-lg border border-gray-200/60 shadow-md px-2 sm:px-3 py-2 text-gray-700">
         <MotionLink 
@@ -45,29 +45,32 @@ const Header = () => {
         </MotionLink>
         <div className="w-px h-5 bg-gray-200/80 mx-1 hidden sm:block"></div>
         <nav className="flex items-center">
-          {navItems.map((item) => (
-            <MotionLink
-              key={item.name}
-              href={item.href}
-              className={`relative text-sm px-3 sm:px-4 py-1.5 rounded-full transition-colors duration-200 ${
-                pathname === item.href
-                  ? 'text-gray-800'
-                  : 'text-gray-500 hover:text-gray-800'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-            >
-              {item.name}
-              {pathname === item.href && (
-                <motion.div
-                  className="absolute inset-0 bg-white rounded-full shadow-sm -z-10"
-                  layoutId="active-nav-link"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-            </MotionLink>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/product'));
+            return (
+              <MotionLink
+                key={item.name}
+                href={item.href}
+                className={`relative text-sm px-3 sm:px-4 py-1.5 rounded-full transition-colors duration-200 ${
+                  isActive
+                    ? 'text-gray-800'
+                    : 'text-gray-500 hover:text-gray-800'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+              >
+                {item.name}
+                {isActive && (
+                  <motion.div
+                    className="absolute inset-0 bg-white rounded-full shadow-sm -z-10"
+                    layoutId="active-nav-link"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </MotionLink>
+            )
+          })}
         </nav>
       </div>
     </motion.header>

@@ -39,7 +39,7 @@ export default function ProductPageClient({ project }: { project: any }) {
       <div className="w-full max-w-4xl">
         <motion.div className="mb-8 md:mb-12" variants={itemVariants}>
             <Button variant="ghost" asChild className="text-gray-600 hover:text-gray-900">
-                <Link href="/">
+                <Link href="/work">
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Back to Work
                 </Link>
