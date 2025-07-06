@@ -55,7 +55,7 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
         
         <motion.article>
           {project.frontmatter.image && (
-            <motion.div className="mb-8 md:mb-12 overflow-hidden rounded-lg shadow-lg" variants={itemVariants}>
+            <motion.div className="mb-8 md:mb-12 overflow-hidden rounded-lg shadow-xl" variants={itemVariants}>
               <Image
                 src={project.frontmatter.image}
                 alt={project.frontmatter.title}
@@ -73,7 +73,7 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
           </motion.header>
 
           <motion.div className="mb-8 md:mb-12 border-b border-t py-6" variants={itemVariants}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center items-center">
+            <div className="flex flex-wrap gap-x-12 gap-y-6 justify-center items-center text-center">
               <div>
                 <p className="text-sm text-gray-500 mb-1">Client</p>
                 <p className="font-semibold text-gray-800">{project.frontmatter.client}</p>
@@ -82,7 +82,7 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
                 <p className="text-sm text-gray-500 mb-1">Year</p>
                 <p className="font-semibold text-gray-800">{project.frontmatter.year}</p>
               </div>
-              <div className="col-span-2 md:col-span-1">
+              <div className="flex-shrink-0">
                   <p className="text-sm text-gray-500 mb-1">Services</p>
                   <div className="flex flex-wrap gap-2 justify-center">
                       {project.frontmatter.services.map((service: string) => (
@@ -91,8 +91,8 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
                   </div>
               </div>
               {project.frontmatter.live_url && (
-                <div className="col-span-2 md:col-span-1">
-                  <Button asChild variant="outline" className="w-full">
+                <div className="flex-shrink-0">
+                  <Button asChild variant="outline">
                       <Link href={project.frontmatter.live_url} target="_blank" rel="noopener noreferrer">
                           Live Website <Globe className="ml-2 h-4 w-4" />
                       </Link>

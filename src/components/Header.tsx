@@ -34,7 +34,7 @@ const Header = () => {
       className="fixed top-4 z-50 w-full flex justify-center px-4"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: "easeInOut", delay: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeInOut", delay: 0.4 }}
     >
       <div className="w-full md:w-auto flex items-center justify-between rounded-full bg-gray-100/50 backdrop-blur-lg border border-gray-200/60 shadow-md px-3 py-2 text-gray-700">
         <MotionLink 
@@ -51,7 +51,7 @@ const Header = () => {
         <div className="w-px h-5 bg-gray-200/80 mx-2 hidden md:block"></div>
         <nav className="hidden md:flex items-center">
           {navItems.map((item) => {
-            const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/product'));
+            const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/product')) || (item.href === '/writing' && pathname.startsWith('/writing/'));
             return (
               <MotionLink
                 key={item.name}
@@ -89,7 +89,7 @@ const Header = () => {
             <SheetContent side="right" className="w-[280px]">
               <nav className="flex flex-col space-y-4 pt-10">
                 {navItems.map((item) => {
-                  const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/product'));
+                  const isActive = pathname === item.href || (item.href === '/work' && pathname.startsWith('/product')) || (item.href === '/writing' && pathname.startsWith('/writing/'));
                   return (
                     <Link
                       key={item.name}

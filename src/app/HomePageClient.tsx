@@ -19,7 +19,7 @@ export default function HomePageClient() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3,
+        delayChildren: 0.4,
       },
     },
   };
@@ -30,8 +30,8 @@ export default function HomePageClient() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.7,
-        ease: "easeInOut",
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99],
       },
     },
   };
@@ -47,7 +47,7 @@ export default function HomePageClient() {
         <DaybreakLogo />
       </motion.div>
       <motion.h1 
-        className="text-4xl sm:text-5xl md:text-6xl font-medium text-gray-800 mb-4"
+        className="text-5xl sm:text-6xl md:text-7xl font-medium text-gray-800 mb-4"
         variants={itemVariants}
       >
         FrostFoe
@@ -56,7 +56,7 @@ export default function HomePageClient() {
         className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
         variants={itemVariants}
       >
-        A design &amp; technology artisan, crafting digital experiences that feel right and work better.
+        Crafting digital experiences that connect, inspire, and endure.
       </motion.p>
       <motion.div 
         variants={itemVariants} 

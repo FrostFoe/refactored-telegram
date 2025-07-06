@@ -15,9 +15,9 @@ const Footer = () => {
   return (
     <motion.footer 
       className="relative z-10 border-t border-gray-200/60 mt-32"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 1, ease: "easeInOut" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.8, ease: "easeInOut" }}
     >
       <div className="container mx-auto px-4 py-10 md:py-16 flex flex-col items-center text-center">
         
