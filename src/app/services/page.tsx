@@ -1,17 +1,17 @@
-import { getPageContent } from '@/lib/content';
-import type { Metadata } from 'next';
-import ServicesPageClient from './ServicesPageClient';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { getPageContent } from "@/lib/content";
+import type { Metadata } from "next";
+import ServicesPageClient from "./ServicesPageClient";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { frontmatter } = await getPageContent('services');
+  const { frontmatter } = await getPageContent("services");
   return {
     title: frontmatter.title,
   };
 }
 
 export default async function ServicesPage() {
-  const { frontmatter, content } = await getPageContent('services');
+  const { frontmatter, content } = await getPageContent("services");
 
   return (
     <ServicesPageClient frontmatter={frontmatter}>

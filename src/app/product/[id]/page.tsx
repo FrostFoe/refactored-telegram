@@ -1,8 +1,8 @@
-import { getProjectBySlug, getProjects } from '@/lib/content';
-import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import ProductPageClient from './ProductPageClient';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { getProjectBySlug, getProjects } from "@/lib/content";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import ProductPageClient from "./ProductPageClient";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface ProductPageProps {
   params: {
@@ -10,12 +10,14 @@ interface ProductPageProps {
   };
 }
 
-export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ProductPageProps): Promise<Metadata> {
   const project = await getProjectBySlug(params.id);
   if (!project) {
     return {
-      title: 'প্রকল্প পাওয়া যায়নি',
-    }
+      title: "প্রকল্প পাওয়া যায়নি",
+    };
   }
   return {
     title: project.frontmatter.title,
@@ -25,7 +27,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
 export async function generateStaticParams() {
   const projects = await getProjects();
-  return projects.map(project => ({
+  return projects.map((project) => ({
     id: project.slug,
   }));
 }

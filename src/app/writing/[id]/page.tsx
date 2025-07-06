@@ -1,8 +1,8 @@
-import { getPostBySlug, getPosts } from '@/lib/content';
-import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import PostPageClient from './PostPageClient';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { getPostBySlug, getPosts } from "@/lib/content";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import PostPageClient from "./PostPageClient";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface PostPageProps {
   params: {
@@ -10,22 +10,24 @@ interface PostPageProps {
   };
 }
 
-export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-    const post = await getPostBySlug(params.id);
-    if (!post) {
-        return {
-            title: 'পোস্ট পাওয়া যায়নি',
-        }
-    }
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
+  const post = await getPostBySlug(params.id);
+  if (!post) {
     return {
-        title: post.frontmatter.title,
-        description: post.frontmatter.excerpt,
+      title: "পোস্ট পাওয়া যায়নি",
     };
+  }
+  return {
+    title: post.frontmatter.title,
+    description: post.frontmatter.excerpt,
+  };
 }
 
 export async function generateStaticParams() {
   const posts = await getPosts();
-  return posts.map(post => ({
+  return posts.map((post) => ({
     id: post.slug,
   }));
 }

@@ -1,15 +1,21 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-export default function AboutPageClient({ frontmatter, children }: { frontmatter: any, children: React.ReactNode }) {
+export default function AboutPageClient({
+  frontmatter,
+  children,
+}: {
+  frontmatter: any;
+  children: React.ReactNode;
+}) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-      }
+      },
     },
   };
 
@@ -21,7 +27,7 @@ export default function AboutPageClient({ frontmatter, children }: { frontmatter
       transition: {
         duration: 0.5,
         ease: "easeInOut",
-      }
+      },
     },
   };
 
@@ -32,20 +38,14 @@ export default function AboutPageClient({ frontmatter, children }: { frontmatter
       animate="visible"
       variants={containerVariants}
     >
-      <div
-        className="w-full max-w-4xl mx-auto text-center"
-      >
+      <div className="w-full max-w-4xl mx-auto text-center">
         <motion.h1
           className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800 mb-8 md:mb-12"
           variants={itemVariants}
         >
           {frontmatter.title}
         </motion.h1>
-        <motion.div
-          variants={itemVariants}
-        >
-          {children}
-        </motion.div>
+        <motion.div variants={itemVariants}>{children}</motion.div>
       </div>
     </motion.div>
   );

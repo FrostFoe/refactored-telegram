@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import type { PostFrontmatter } from '@/types';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
+import type { PostFrontmatter } from "@/types";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -20,13 +20,16 @@ const itemVariants = {
 };
 
 const PostItem = ({ post }: { post: PostFrontmatter }) => (
-  <motion.div
-    variants={itemVariants}
-    className="border-b border-gray-200/60"
-  >
-    <Link href={`/writing/${post.slug}`} className="block group transition-all duration-300 py-8 md:py-10 hover:bg-gray-50/50 -mx-4 px-4 rounded-lg">
-      <motion.div 
-        whileHover={{ scale: 1.01, transition: { duration: 0.2, ease: 'easeInOut' } }}
+  <motion.div variants={itemVariants} className="border-b border-gray-200/60">
+    <Link
+      href={`/writing/${post.slug}`}
+      className="block group transition-all duration-300 py-8 md:py-10 hover:bg-gray-50/50 -mx-4 px-4 rounded-lg"
+    >
+      <motion.div
+        whileHover={{
+          scale: 1.01,
+          transition: { duration: 0.2, ease: "easeInOut" },
+        }}
         whileTap={{ scale: 0.99 }}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 items-start">
@@ -44,7 +47,22 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
               </div>
             ) : (
               <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-gray-300"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-8 h-8 text-gray-300"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
               </div>
             )}
           </div>
@@ -52,11 +70,18 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
             <div className="mb-2">
               <span className="text-sm text-gray-500">{post.date}</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{post.title}</h3>
-            <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{post.excerpt}</p>
+            <h3 className="text-2xl sm:text-3xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">
+              {post.title}
+            </h3>
+            <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">
+              {post.excerpt}
+            </p>
             <div className="mt-4 flex flex-wrap gap-2">
-                {post.tags && post.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="font-normal">{tag}</Badge>
+              {post.tags &&
+                post.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary" className="font-normal">
+                    {tag}
+                  </Badge>
                 ))}
             </div>
             <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
@@ -70,7 +95,11 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
   </motion.div>
 );
 
-export default function WritingPageClient({ posts }: { posts: PostFrontmatter[] }) {
+export default function WritingPageClient({
+  posts,
+}: {
+  posts: PostFrontmatter[];
+}) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -95,7 +124,7 @@ export default function WritingPageClient({ posts }: { posts: PostFrontmatter[] 
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="w-full min-h-screen flex flex-col items-center px-4 pt-24 md:pt-32 pb-16"
       initial="hidden"
       animate="visible"
@@ -105,16 +134,15 @@ export default function WritingPageClient({ posts }: { posts: PostFrontmatter[] 
         className="text-center mb-12 md:mb-16"
         variants={headerItemVariants}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">Thoughts &amp; Ideas</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">
+          Thoughts &amp; Ideas
+        </h1>
         <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
           Exploring design, technology, and the space in between.
         </p>
       </motion.div>
 
-      <motion.div
-        className="w-full max-w-4xl"
-        variants={containerVariants}
-      >
+      <motion.div className="w-full max-w-4xl" variants={containerVariants}>
         {posts.map((post) => (
           <PostItem key={post.slug} post={post} />
         ))}
