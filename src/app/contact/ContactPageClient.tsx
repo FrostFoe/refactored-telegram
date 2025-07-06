@@ -35,7 +35,7 @@ export default function ContactPageClient({
 
   return (
     <motion.div
-      className="w-full min-h-screen flex flex-col items-center justify-center px-4 pt-24 md:pt-32 pb-16"
+      className="w-full min-h-screen flex flex-col items-center justify-center px-4 pt-20 sm:pt-24 md:pt-32 pb-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

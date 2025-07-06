@@ -23,7 +23,7 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
   <motion.div variants={itemVariants} className="border-b border-gray-200/60">
     <Link
       href={`/writing/${post.slug}`}
-      className="block group transition-all duration-300 py-8 md:py-10 hover:bg-gray-50/50 -mx-4 px-4 rounded-lg"
+      className="block group transition-all duration-300 py-8 md:py-10 hover:bg-gray-50/50 rounded-lg md:-mx-4 md:px-4"
     >
       <motion.div
         whileHover={{
@@ -124,7 +124,7 @@ export default function WritingPageClient({
 
   return (
     <motion.div
-      className="w-full min-h-screen flex flex-col items-center px-4 pt-24 md:pt-32 pb-16"
+      className="w-full min-h-screen flex flex-col items-center px-4 pt-20 sm:pt-24 md:pt-32 pb-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

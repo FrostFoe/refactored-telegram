@@ -103,11 +103,7 @@ export default function ContactForm() {
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full py-7 text-base md:text-lg"
-          >
+          <Button type="submit" size="lg" className="w-full">
             Send Message <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>

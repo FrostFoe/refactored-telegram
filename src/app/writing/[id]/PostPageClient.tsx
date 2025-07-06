@@ -39,7 +39,7 @@ export default function PostPageClient({
 
   return (
     <motion.div
-      className="w-full min-h-screen flex flex-col items-center px-4 pt-24 md:pt-32 pb-16"
+      className="w-full min-h-screen flex flex-col items-center px-4 pt-20 sm:pt-24 md:pt-32 pb-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -93,7 +93,7 @@ export default function PostPageClient({
             className="mb-8 md:mb-12 border-b border-t py-6"
             variants={itemVariants}
           >
-            <div className="flex flex-wrap gap-x-12 gap-y-6 justify-center items-center text-center">
+            <div className="flex flex-wrap gap-x-8 gap-y-6 md:gap-x-12 justify-center items-center text-center">
               <div>
                 <p className="text-sm text-gray-500 mb-1 flex items-center justify-center gap-2">
                   <User size={14} /> লেখক

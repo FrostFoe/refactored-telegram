@@ -60,7 +60,7 @@ export default function HomePageClient() {
         <DaybreakLogo />
       </motion.div>
       <motion.h1
-        className="text-5xl sm:text-6xl md:text-7xl font-medium text-gray-800 mb-4"
+        className="text-4xl sm:text-5xl md:text-6xl font-medium text-gray-800 mb-4"
         variants={itemVariants}
       >
         FrostFoe
@@ -78,7 +78,7 @@ export default function HomePageClient() {
         whileTap={{ scale: 0.97 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
       >
-        <Button asChild size="lg" className="py-7 text-base md:text-lg">
+        <Button asChild size="lg">
           <Link href="/work">
             Explore My Work <ArrowRight className="ml-2 w-5 h-5" />
           </Link>

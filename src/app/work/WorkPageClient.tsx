@@ -52,7 +52,7 @@ export default function WorkPageClient({
 
   return (
     <motion.div
-      className="w-full min-h-screen flex flex-col items-center px-4 pt-24 md:pt-32 pb-16"
+      className="w-full min-h-screen flex flex-col items-center px-4 pt-20 sm:pt-24 md:pt-32 pb-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -98,7 +98,7 @@ export default function WorkPageClient({
                   </div>
                 )}
                 <div className="p-6 md:p-8">
-                  <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                  <div className="sm:flex sm:items-center sm:justify-between mb-2">
                     <h3 className="text-2xl sm:text-3xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
