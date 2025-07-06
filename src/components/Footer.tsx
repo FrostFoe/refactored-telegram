@@ -1,5 +1,8 @@
+'use client';
+
 import { Github, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const DaybreakLogo = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-700">
@@ -10,7 +13,12 @@ const DaybreakLogo = () => (
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 border-t border-gray-200/60 mt-32">
+    <motion.footer 
+      className="relative z-10 border-t border-gray-200/60 mt-32"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 1 }}
+    >
       <div className="container mx-auto px-4 py-12 flex flex-col items-center text-center">
         
         <Link href="/" className="flex flex-col items-center gap-2 mb-6 text-gray-800 transition-colors hover:text-primary">
@@ -19,12 +27,12 @@ const Footer = () => {
         </Link>
 
         <div className="flex items-center gap-6 mb-8">
-            <Link href="#" aria-label="Twitter">
+            <motion.a href="#" aria-label="Twitter" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 <Twitter className="h-6 w-6 text-gray-500 transition-colors hover:text-gray-800" />
-            </Link>
-            <Link href="#" aria-label="GitHub">
+            </motion.a>
+            <motion.a href="#" aria-label="GitHub" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 <Github className="h-6 w-6 text-gray-500 transition-colors hover:text-gray-800" />
-            </Link>
+            </motion.a>
         </div>
 
         <div className="text-sm text-gray-500">
@@ -33,7 +41,7 @@ const Footer = () => {
         </div>
 
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
