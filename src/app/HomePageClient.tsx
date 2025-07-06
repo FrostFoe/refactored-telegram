@@ -69,7 +69,8 @@ export default function HomePageClient() {
         className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
         variants={itemVariants}
       >
-        Crafting digital experiences that connect, inspire, and endure.
+        Crafting digital experiences that connect, inspire, and endure. (সংযুক্তি,
+        অনুপ্রেরণা এবং সহনশীলতার জন্য ডিজিটাল অভিজ্ঞতা তৈরি)।
       </motion.p>
       <motion.div
         variants={itemVariants}

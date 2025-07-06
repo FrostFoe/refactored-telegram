@@ -20,7 +20,10 @@ const itemVariants = {
 };
 
 const PostItem = ({ post }: { post: PostFrontmatter }) => (
-  <motion.div variants={itemVariants} className="border-b border-gray-200/60">
+  <motion.div
+    variants={itemVariants}
+    className="border-b border-gray-200/60 last:border-b-0"
+  >
     <Link
       href={`/writing/${post.slug}`}
       className="block group transition-all duration-300 py-8 md:py-10 hover:bg-gray-50/50 rounded-lg md:-mx-4 md:px-4"
@@ -96,8 +99,10 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
 
 export default function WritingPageClient({
   posts,
+  frontmatter,
 }: {
   posts: PostFrontmatter[];
+  frontmatter: any;
 }) {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -134,10 +139,10 @@ export default function WritingPageClient({
         variants={headerItemVariants}
       >
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">
-          Thoughts &amp; Ideas
+          {frontmatter.title}
         </h1>
         <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          Exploring design, technology, and the space in between.
+          {frontmatter.subtitle}
         </p>
       </motion.div>
 
