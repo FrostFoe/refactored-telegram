@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function ProductPageClient({ project }: { project: any }) {
   const containerVariants = {
@@ -46,17 +47,32 @@ export default function ProductPageClient({ project }: { project: any }) {
             </Button>
         </motion.div>
         
-        <motion.article variants={itemVariants}>
-          <header className="mb-8 text-center">
+        <motion.article>
+          {project.frontmatter.image && (
+            <motion.div className="mb-8 md:mb-12 overflow-hidden rounded-lg" variants={itemVariants}>
+              <Image
+                src={project.frontmatter.image}
+                alt={project.frontmatter.title}
+                width={1200}
+                height={600}
+                className="object-cover w-full"
+                data-ai-hint="project hero"
+                priority
+              />
+            </motion.div>
+          )}
+
+          <motion.header className="mb-8 text-center" variants={itemVariants}>
             <p className="text-base md:text-lg text-gray-500 mb-2">{project.frontmatter.year}</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{project.frontmatter.title}</h1>
-          </header>
+          </motion.header>
 
-          <div 
+          <motion.div 
             className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed"
+            variants={itemVariants}
           >
             <MDXRemote source={project.content} />
-          </div>
+          </motion.div>
         </motion.article>
       </div>
     </motion.div>

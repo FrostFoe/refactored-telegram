@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { ProjectFrontmatter } from '@/types';
 import { Card } from '@/components/ui/card';
+import Image from 'next/image';
 
 export default function WorkPageClient({ projects, frontmatter }: { projects: ProjectFrontmatter[], frontmatter: any }) {
   const containerVariants = {
@@ -66,15 +67,29 @@ export default function WorkPageClient({ projects, frontmatter }: { projects: Pr
         {projects.map((project) => (
             <motion.div key={project.slug} variants={itemVariants}>
                 <Link href={`/product/${project.slug}`} className="block group">
-                  <Card className="p-6 md:p-8 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-                    <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                        <h3 className="text-2xl sm:text-3xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                        <span className="text-base md:text-lg text-gray-400 mt-1 sm:mt-0">{project.year}</span>
-                    </div>
-                    <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
-                    <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
-                        প্রকল্প দেখুন
-                        <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                  <Card className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden">
+                    {project.image && (
+                        <div className="overflow-hidden">
+                            <Image
+                              src={project.image}
+                              alt={project.title}
+                              width={800}
+                              height={400}
+                              className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              data-ai-hint="project thumbnail"
+                            />
+                        </div>
+                    )}
+                    <div className="p-6 md:p-8">
+                        <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                            <h3 className="text-2xl sm:text-3xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
+                            <span className="text-base md:text-lg text-gray-400 mt-1 sm:mt-0">{project.year}</span>
+                        </div>
+                        <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
+                        <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
+                            প্রকল্প দেখুন
+                            <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                        </div>
                     </div>
                   </Card>
                 </Link>

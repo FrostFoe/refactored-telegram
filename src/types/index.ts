@@ -3,6 +3,7 @@ export interface ProjectFrontmatter {
   title: string;
   description: string;
   year: string;
+  image?: string;
 }
 
 export interface PostFrontmatter {
@@ -10,4 +11,5 @@ export interface PostFrontmatter {
   title: string;
   date: string;
   excerpt: string;
+  image?: string;
 }
