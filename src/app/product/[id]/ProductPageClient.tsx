@@ -85,7 +85,7 @@ export default function ProductPageClient({ project }: { project: { frontmatter:
               <div className="flex-shrink-0">
                   <p className="text-sm text-gray-500 mb-1">Services</p>
                   <div className="flex flex-wrap gap-2 justify-center">
-                      {project.frontmatter.services.map((service: string) => (
+                      {project.frontmatter.services && project.frontmatter.services.map((service: string) => (
                           <Badge key={service} variant="secondary">{service}</Badge>
                       ))}
                   </div>

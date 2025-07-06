@@ -74,7 +74,7 @@ export default function PostPageClient({ post }: { post: { frontmatter: PostFron
             <p className="text-base md:text-lg text-gray-500 mb-2">{post.frontmatter.date}</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{post.frontmatter.title}</h1>
             <div className="mt-4 flex flex-wrap gap-2 justify-center">
-                {post.frontmatter.tags.map((tag: string) => (
+                {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => (
                     <Badge key={tag} variant="outline">{tag}</Badge>
                 ))}
             </div>

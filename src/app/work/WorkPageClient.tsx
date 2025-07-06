@@ -93,7 +93,7 @@ export default function WorkPageClient({ projects, frontmatter }: { projects: Pr
                         </div>
                         <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
                         <div className="mt-4 flex flex-wrap gap-2">
-                          {project.services.slice(0, 3).map((service) => (
+                          {project.services && project.services.slice(0, 3).map((service) => (
                               <Badge key={service} variant="secondary">{service}</Badge>
                           ))}
                         </div>

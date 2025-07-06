@@ -55,7 +55,7 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
             <h3 className="text-2xl sm:text-3xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{post.title}</h3>
             <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{post.excerpt}</p>
             <div className="mt-4 flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
+                {post.tags && post.tags.map((tag) => (
                     <Badge key={tag} variant="secondary" className="font-normal">{tag}</Badge>
                 ))}
             </div>
