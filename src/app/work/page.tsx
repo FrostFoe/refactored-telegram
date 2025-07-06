@@ -5,7 +5,7 @@ import WorkPageClient from './WorkPageClient';
 export async function generateMetadata(): Promise<Metadata> {
   const { frontmatter } = await getPageContent('home');
   return {
-    title: frontmatter.title,
+    title: 'কাজ',
     description: frontmatter.subtitle,
   };
 }
