@@ -1,1 +1,1 @@
-// This component has been removed for performance and stability reasons.
+// This component is obsolete and has been removed for performance and stability.

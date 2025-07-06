@@ -43,7 +43,7 @@ export default function AboutPageClient({ frontmatter, content }: { frontmatter:
           {frontmatter.title}
         </motion.h1>
         <motion.div
-          className="prose prose-lg lg:prose-xl max-w-none text-gray-600 text-left"
+          className="prose md:prose-lg lg:prose-xl max-w-none text-gray-600 text-left"
           variants={itemVariants}
         >
           <MDXRemote source={content} />

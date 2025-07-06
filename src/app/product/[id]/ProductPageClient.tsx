@@ -53,7 +53,7 @@ export default function ProductPageClient({ project }: { project: any }) {
           </header>
 
           <div 
-            className="prose prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed"
+            className="prose md:prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed"
           >
             <MDXRemote source={project.content} />
           </div>
