@@ -43,7 +43,7 @@ export default function PostPageClient({ post }: { post: any }) {
             <Button variant="ghost" asChild className="text-gray-600 hover:text-gray-900">
                 <Link href="/writing">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Writing
+                    লেখায় ফিরে যান
                 </Link>
             </Button>
         </motion.div>

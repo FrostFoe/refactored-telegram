@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     const post = await getPostBySlug(params.id);
     if (!post) {
         return {
-            title: 'Post Not Found',
+            title: 'পোস্ট পাওয়া যায়নি',
         }
     }
     return {

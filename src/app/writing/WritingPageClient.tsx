@@ -26,7 +26,7 @@ const PostItem = ({ post }: { post: PostFrontmatter }) => (
       <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{post.title}</h3>
       <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{post.excerpt}</p>
       <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-primary">
-        Read Article
+        প্রবন্ধটি পড়ুন
         <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </Link>
@@ -68,9 +68,9 @@ export default function WritingPageClient({ posts }: { posts: PostFrontmatter[] 
         className="text-center mb-12 md:mb-16"
         variants={headerItemVariants}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">Thoughts & Ideas</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">চিন্তা ও ধারণা</h1>
         <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          Exploring design, technology, and the space in between.
+          ডিজাইন, প্রযুক্তি এবং এর মধ্যবর্তী স্থান অন্বেষণ।
         </p>
       </motion.div>
 

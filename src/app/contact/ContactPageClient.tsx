@@ -57,17 +57,17 @@ export default function ContactPageClient({ frontmatter }: { frontmatter: any })
             variants={itemVariants}
         >
             <div>
-                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2 flex items-center"><Mail className="w-5 h-5 mr-3 text-gray-500" /> Email</h3>
+                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2 flex items-center"><Mail className="w-5 h-5 mr-3 text-gray-500" /> ইমেল</h3>
                 <p className="text-base md:text-lg text-gray-600">hello@daybreak.studio</p>
             </div>
             <div>
-                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2 flex items-center"><MapPin className="w-5 h-5 mr-3 text-gray-500" /> Based In</h3>
-                <p className="text-base md:text-lg text-gray-600">The Cloud, Everywhere</p>
+                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2 flex items-center"><MapPin className="w-5 h-5 mr-3 text-gray-500" /> অবস্থান</h3>
+                <p className="text-base md:text-lg text-gray-600">ক্লাউড, সর্বত্র</p>
             </div>
              <div>
-                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2">Start a Conversation</h3>
+                <h3 className="font-semibold text-lg md:text-xl text-gray-800 mb-2">কথোপকথন শুরু করুন</h3>
                 <p className="text-base md:text-lg text-gray-600">
-                    We're always open to discussing new projects, creative ideas, or opportunities to be part of something visionary.
+                    আমরা সবসময় নতুন প্রকল্প, সৃজনশীল ধারণা, বা স্বপ্নদর্শী কিছুর অংশ হওয়ার সুযোগ নিয়ে আলোচনা করার জন্য উন্মুক্ত।
                 </p>
             </div>
         </motion.div>

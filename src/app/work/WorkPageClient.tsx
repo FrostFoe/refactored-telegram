@@ -71,7 +71,7 @@ export default function WorkPageClient({ projects, frontmatter }: { projects: Pr
                     </div>
                     <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
                     <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-transform duration-300 ease-in-out opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0">
-                        View Project
+                        প্রকল্প দেখুন
                         <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                     </div>
                 </Link>

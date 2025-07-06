@@ -23,7 +23,7 @@ const Footer = () => {
         
         <Link href="/" className="flex flex-col items-center gap-2 mb-4 md:mb-6 text-gray-800 transition-colors hover:text-primary">
             <DaybreakLogo />
-            <span className="font-semibold text-base md:text-lg">Daybreak</span>
+            <span className="font-semibold text-base md:text-lg">ডেব্রিক</span>
         </Link>
 
         <div className="flex items-center gap-6 mb-6 md:mb-8">
@@ -36,8 +36,8 @@ const Footer = () => {
         </div>
 
         <div className="text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Daybreak. All rights reserved.</p>
-          <p className="mt-1">Design that feels right. Tech that works well.</p>
+          <p>© {new Date().getFullYear()} ডেব্রিক। সর্বস্বত্ব সংরক্ষিত।</p>
+          <p className="mt-1">ডিজাইন যা সঠিক মনে হয়। প্রযুক্তি যা ভাল কাজ করে।</p>
         </div>
 
       </div>

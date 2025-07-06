@@ -41,7 +41,7 @@ export default function ProductPageClient({ project }: { project: any }) {
             <Button variant="ghost" asChild className="text-gray-600 hover:text-gray-900">
                 <Link href="/work">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Work
+                    কাজে ফিরে যান
                 </Link>
             </Button>
         </motion.div>

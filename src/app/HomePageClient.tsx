@@ -47,13 +47,13 @@ export default function HomePageClient() {
         className="text-4xl sm:text-5xl md:text-6xl font-medium text-gray-800 mb-4"
         variants={itemVariants}
       >
-        Daybreak
+        ডেব্রিক
       </motion.h1>
       <motion.p 
         className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
         variants={itemVariants}
       >
-        A design and technology studio crafting digital experiences that feel right and work well.
+        একটি ডিজাইন এবং প্রযুক্তি স্টুডিও যা ডিজিটাল অভিজ্ঞতা তৈরি করে যা সঠিক মনে হয় এবং ভাল কাজ করে।
       </motion.p>
     </motion.div>
   );

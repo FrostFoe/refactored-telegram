@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const project = await getProjectBySlug(params.id);
   if (!project) {
     return {
-      title: 'Project Not Found',
+      title: 'প্রকল্প পাওয়া যায়নি',
     }
   }
   return {

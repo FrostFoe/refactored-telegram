@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import WritingPageClient from './WritingPageClient';
 
 export const metadata: Metadata = {
-    title: 'Writing',
-    description: 'Exploring design, technology, and the space in between.',
+    title: 'লেখা',
+    description: 'ডিজাইন, প্রযুক্তি এবং এর মধ্যবর্তী স্থান অন্বেষণ।',
 };
 
 export default async function WritingPage() {
