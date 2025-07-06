@@ -1,2 +1,2 @@
-// This file has been replaced by next.config.js to fix a configuration error.
-// It can be safely deleted.
+// This file is obsolete and has been replaced by next.config.js.
+// It has been cleared to prevent build errors and can be safely deleted.
