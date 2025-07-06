@@ -7,10 +7,18 @@ import type { PostFrontmatter, ProjectFrontmatter } from "@/types";
 
 const contentDirectory = path.join(process.cwd(), "content");
 
+function ensureDirectoryExists(contentType: string) {
+  const dir = path.join(contentDirectory, contentType);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+}
+
 async function getContent<T>(
   contentType: "work" | "writing" | "pages",
   slug?: string,
 ): Promise<any> {
+  ensureDirectoryExists(contentType);
   const dir = path.join(contentDirectory, contentType);
 
   if (slug) {
@@ -45,13 +53,31 @@ export async function getProjectBySlug(slug: string) {
 
 export async function getPosts(): Promise<PostFrontmatter[]> {
   const posts = await getContent<PostFrontmatter>("writing");
-  return (posts as PostFrontmatter[]).sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  return (posts as PostFrontmatter[])
+    .map((post) => {
+      const filePath = path.join(contentDirectory, "writing", `${post.slug}.mdx`);
+      const fileContents = fs.readFileSync(filePath, "utf8");
+      const { content } = matter(fileContents);
+      const wordCount = content.split(/\s+/).filter(Boolean).length;
+      const readingTime = `${Math.ceil(wordCount / 200)} min read`;
+
+      return {
+        ...post,
+        author: post.author || "FrostFoe",
+        readingTime,
+      };
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function getPostBySlug(slug: string) {
-  return getContent<PostFrontmatter>("writing", slug);
+  const post = await getContent<PostFrontmatter>("writing", slug);
+  if (post) {
+    const wordCount = post.content.split(/\s+/).filter(Boolean).length;
+    post.frontmatter.readingTime = `${Math.ceil(wordCount / 200)} min read`;
+    post.frontmatter.author = post.frontmatter.author || "FrostFoe";
+  }
+  return post;
 }
 
 export async function getPageContent(slug: string) {

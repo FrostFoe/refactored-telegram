@@ -4,7 +4,7 @@ export interface ProjectFrontmatter {
   description: string;
   year: string;
   image?: string;
-  services: string[];
+  services?: string[];
   client: string;
   live_url?: string;
 }
@@ -15,5 +15,7 @@ export interface PostFrontmatter {
   date: string;
   excerpt: string;
   image?: string;
-  tags: string[];
+  tags?: string[];
+  author: string;
+  readingTime: string;
 }

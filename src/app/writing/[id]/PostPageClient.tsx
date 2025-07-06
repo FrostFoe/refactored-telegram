@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -68,7 +68,7 @@ export default function PostPageClient({
         <motion.article>
           {frontmatter.image && (
             <motion.div
-              className="mb-8 md:mb-12 overflow-hidden rounded-lg shadow-lg"
+              className="mb-8 md:mb-12 overflow-hidden rounded-lg shadow-xl"
               variants={itemVariants}
             >
               <Image
@@ -84,21 +84,54 @@ export default function PostPageClient({
           )}
 
           <motion.header className="mb-8 text-center" variants={itemVariants}>
-            <p className="text-base md:text-lg text-gray-500 mb-2">
-              {frontmatter.date}
-            </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">
               {frontmatter.title}
             </h1>
-            <div className="mt-4 flex flex-wrap gap-2 justify-center">
-              {frontmatter.tags &&
-                frontmatter.tags.map((tag: string) => (
-                  <Badge key={tag} variant="outline">
-                    {tag}
-                  </Badge>
-                ))}
-            </div>
           </motion.header>
+
+          <motion.div
+            className="mb-8 md:mb-12 border-b border-t py-6"
+            variants={itemVariants}
+          >
+            <div className="flex flex-wrap gap-x-12 gap-y-6 justify-center items-center text-center">
+              <div>
+                <p className="text-sm text-gray-500 mb-1 flex items-center justify-center gap-2">
+                  <User size={14} /> লেখক
+                </p>
+                <p className="font-semibold text-gray-800">
+                  {frontmatter.author}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 mb-1 flex items-center justify-center gap-2">
+                  <Calendar size={14} /> প্রকাশিত
+                </p>
+                <p className="font-semibold text-gray-800">
+                  {frontmatter.date}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 mb-1 flex items-center justify-center gap-2">
+                  <Clock size={14} /> পড়ার সময়
+                </p>
+                <p className="font-semibold text-gray-800">
+                  {frontmatter.readingTime}
+                </p>
+              </div>
+              {frontmatter.tags && (
+                <div className="flex-shrink-0">
+                  <p className="text-sm text-gray-500 mb-1">Tags</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {frontmatter.tags.map((tag: string) => (
+                      <Badge key={tag} variant="secondary">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </motion.div>
 
           <motion.div variants={itemVariants}>{children}</motion.div>
         </motion.article>
