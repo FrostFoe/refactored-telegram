@@ -18,42 +18,42 @@ export default function HomePageClient({ projects, frontmatter }: { projects: Pr
   };
 
   const itemVariants = {
-    hidden: { y: 15, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.6, 0.05, -0.01, 0.9],
+        duration: 0.5,
+        ease: "easeInOut",
       },
     },
   };
   
   const headerItemVariants = {
-    hidden: { y: -15, opacity: 0 },
+    hidden: { y: -20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.6, 0.05, -0.01, 0.9],
+        duration: 0.5,
+        ease: "easeInOut",
       },
     },
   };
 
   return (
     <motion.div 
-      className="w-full min-h-screen flex flex-col items-center px-4 pt-32 pb-16"
+      className="w-full min-h-screen flex flex-col items-center px-4 pt-24 md:pt-32 pb-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-12 md:mb-16"
         variants={headerItemVariants}
       >
-        <h1 className="text-3xl md:text-5xl font-medium text-gray-800">{frontmatter.title}</h1>
-        <p className="mt-4 text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{frontmatter.title}</h1>
+        <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
           {frontmatter.subtitle}
         </p>
       </motion.div>
@@ -64,15 +64,15 @@ export default function HomePageClient({ projects, frontmatter }: { projects: Pr
       >
         {projects.map((project) => (
             <motion.div key={project.slug} variants={itemVariants}>
-                <Link href={`/product/${project.slug}`} className="block py-10 group">
+                <Link href={`/product/${project.slug}`} className="block py-8 md:py-10 group">
                     <div className="flex justify-between items-center mb-2">
-                        <h3 className="text-3xl md:text-4xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                        <span className="text-xl text-gray-400">{project.year}</span>
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
+                        <span className="text-base md:text-lg text-gray-400">{project.year}</span>
                     </div>
-                    <p className="mt-4 text-lg md:text-xl text-gray-600 leading-relaxed">{project.description}</p>
-                    <div className="flex items-center mt-6 text-md font-medium text-gray-800 transition-transform duration-300 opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0">
+                    <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">{project.description}</p>
+                    <div className="flex items-center mt-6 text-sm md:text-base font-medium text-gray-800 transition-transform duration-300 ease-in-out opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0">
                         View Project
-                        <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                     </div>
                 </Link>
             </motion.div>

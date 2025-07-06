@@ -18,20 +18,20 @@ export default function PostPageClient({ post }: { post: any }) {
   };
 
   const itemVariants = {
-    hidden: { y: 15, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.6, 0.05, -0.01, 0.9],
+        duration: 0.5,
+        ease: "easeInOut",
       }
     },
   };
 
   return (
     <motion.div 
-      className="w-full min-h-screen flex flex-col items-center px-4 pt-32 pb-16"
+      className="w-full min-h-screen flex flex-col items-center px-4 pt-24 md:pt-32 pb-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -39,7 +39,7 @@ export default function PostPageClient({ post }: { post: any }) {
       <div
         className="w-full max-w-4xl"
       >
-        <motion.div className="mb-12" variants={itemVariants}>
+        <motion.div className="mb-8 md:mb-12" variants={itemVariants}>
             <Button variant="ghost" asChild className="text-gray-600 hover:text-gray-900">
                 <Link href="/writing">
                     <ArrowLeft className="mr-2 h-4 w-4" />
@@ -50,12 +50,12 @@ export default function PostPageClient({ post }: { post: any }) {
         
         <motion.article variants={itemVariants}>
           <header className="mb-8 text-center">
-            <p className="text-lg text-gray-500 mb-2">{post.frontmatter.date}</p>
-            <h1 className="text-3xl md:text-5xl font-medium text-gray-800">{post.frontmatter.title}</h1>
+            <p className="text-base md:text-lg text-gray-500 mb-2">{post.frontmatter.date}</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-800">{post.frontmatter.title}</h1>
           </header>
 
           <div 
-            className="prose lg:prose-xl max-w-none mx-auto text-2xl text-gray-600 leading-relaxed space-y-8"
+            className="prose prose-lg lg:prose-xl max-w-none mx-auto text-gray-600 leading-relaxed"
           >
             <MDXRemote source={post.content} />
           </div>

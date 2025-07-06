@@ -17,20 +17,20 @@ const Footer = () => {
       className="relative z-10 border-t border-gray-200/60 mt-32"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 1, ease: [0.6, 0.05, -0.01, 0.9] }}
+      transition={{ duration: 0.5, delay: 1, ease: "easeInOut" }}
     >
-      <div className="container mx-auto px-4 py-12 flex flex-col items-center text-center">
+      <div className="container mx-auto px-4 py-10 md:py-16 flex flex-col items-center text-center">
         
-        <Link href="/" className="flex flex-col items-center gap-2 mb-6 text-gray-800 transition-colors hover:text-primary">
+        <Link href="/" className="flex flex-col items-center gap-2 mb-4 md:mb-6 text-gray-800 transition-colors hover:text-primary">
             <DaybreakLogo />
-            <span className="font-semibold text-lg">Daybreak</span>
+            <span className="font-semibold text-base md:text-lg">Daybreak</span>
         </Link>
 
-        <div className="flex items-center gap-6 mb-8">
-            <motion.a href="#" aria-label="Twitter" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} transition={{ type: 'spring', stiffness: 300, damping: 15 }}>
+        <div className="flex items-center gap-6 mb-6 md:mb-8">
+            <motion.a href="#" aria-label="Twitter" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
                 <Twitter className="h-6 w-6 text-gray-500 transition-colors hover:text-gray-800" />
             </motion.a>
-            <motion.a href="#" aria-label="GitHub" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} transition={{ type: 'spring', stiffness: 300, damping: 15 }}>
+            <motion.a href="#" aria-label="GitHub" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
                 <Github className="h-6 w-6 text-gray-500 transition-colors hover:text-gray-800" />
             </motion.a>
         </div>
