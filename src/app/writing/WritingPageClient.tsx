@@ -6,13 +6,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 15, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
-      type: 'spring',
-      stiffness: 100,
+      duration: 0.6,
+      ease: [0.6, 0.05, -0.01, 0.9],
     },
   },
 };
@@ -39,20 +39,20 @@ export default function WritingPageClient({ posts }: { posts: PostFrontmatter[] 
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
         delayChildren: 0.3,
       },
     },
   };
 
   const headerItemVariants = {
-    hidden: { y: -20, opacity: 0 },
+    hidden: { y: -15, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
-        stiffness: 100,
+        duration: 0.6,
+        ease: [0.6, 0.05, -0.01, 0.9],
       },
     },
   };

@@ -28,9 +28,9 @@ const Header = () => {
   return (
     <motion.header 
       className="fixed top-6 z-50 w-full flex justify-center"
-      initial={{ y: -100, opacity: 0 }}
+      initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 100, damping: 15, delay: 0.5 }}
+      transition={{ duration: 0.7, ease: [0.6, 0.05, -0.01, 0.9], delay: 0.5 }}
     >
       <div className="flex items-center gap-2 rounded-full bg-gray-100/50 backdrop-blur-lg border border-gray-200/60 shadow-md px-2 py-1.5 text-gray-700">
         <MotionLink 
@@ -38,6 +38,7 @@ const Header = () => {
           className="flex items-center gap-2 px-3"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 15 }}
         >
             <DaybreakLogo />
             <span className="font-medium text-sm">Daybreak</span>
@@ -53,9 +54,9 @@ const Header = () => {
                   ? 'text-gray-800'
                   : 'text-gray-500 hover:text-gray-800'
               }`}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
             >
               {item.name}
               {pathname === item.href && (

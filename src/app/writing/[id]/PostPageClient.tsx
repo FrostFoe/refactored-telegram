@@ -12,19 +12,19 @@ export default function PostPageClient({ post }: { post: any }) {
     visible: { 
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       }
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 15, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
-        stiffness: 100,
+        duration: 0.6,
+        ease: [0.6, 0.05, -0.01, 0.9],
       }
     },
   };

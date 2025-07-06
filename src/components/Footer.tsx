@@ -17,7 +17,7 @@ const Footer = () => {
       className="relative z-10 border-t border-gray-200/60 mt-32"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 1 }}
+      transition={{ duration: 0.8, delay: 1, ease: [0.6, 0.05, -0.01, 0.9] }}
     >
       <div className="container mx-auto px-4 py-12 flex flex-col items-center text-center">
         
@@ -27,10 +27,10 @@ const Footer = () => {
         </Link>
 
         <div className="flex items-center gap-6 mb-8">
-            <motion.a href="#" aria-label="Twitter" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.a href="#" aria-label="Twitter" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} transition={{ type: 'spring', stiffness: 300, damping: 15 }}>
                 <Twitter className="h-6 w-6 text-gray-500 transition-colors hover:text-gray-800" />
             </motion.a>
-            <motion.a href="#" aria-label="GitHub" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.a href="#" aria-label="GitHub" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} transition={{ type: 'spring', stiffness: 300, damping: 15 }}>
                 <Github className="h-6 w-6 text-gray-500 transition-colors hover:text-gray-800" />
             </motion.a>
         </div>

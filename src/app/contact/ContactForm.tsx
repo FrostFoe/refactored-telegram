@@ -82,7 +82,7 @@ export default function ContactForm() {
                <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
               >
                 <Button type="submit" size="lg" className="w-full py-7 text-lg">
                     Send Message <ArrowRight className="ml-2 w-5 h-5" />
