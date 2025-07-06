@@ -58,7 +58,13 @@ export default function HomePageClient() {
       >
         একটি ডিজাইন এবং প্রযুক্তি স্টুডিও যা ডিজিটাল অভিজ্ঞতা তৈরি করে যা সঠিক মনে হয় এবং ভাল কাজ করে।
       </motion.p>
-      <motion.div variants={itemVariants} className="mt-10">
+      <motion.div 
+        variants={itemVariants} 
+        className="mt-10"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+      >
         <Button asChild size="lg" className="py-7 text-base md:text-lg">
           <Link href="/work">
             আমাদের কাজ দেখুন <ArrowRight className="ml-2 w-5 h-5" />

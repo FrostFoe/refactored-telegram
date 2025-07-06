@@ -21,10 +21,16 @@ const Footer = () => {
     >
       <div className="container mx-auto px-4 py-10 md:py-16 flex flex-col items-center text-center">
         
-        <Link href="/" className="flex flex-col items-center gap-2 mb-4 md:mb-6 text-gray-800 transition-colors hover:text-primary">
-            <DaybreakLogo />
-            <span className="font-semibold text-base md:text-lg">ডেব্রিক</span>
-        </Link>
+        <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+        >
+            <Link href="/" className="flex flex-col items-center gap-2 mb-4 md:mb-6 text-gray-800 transition-colors hover:text-primary">
+                <DaybreakLogo />
+                <span className="font-semibold text-base md:text-lg">ডেব্রিক</span>
+            </Link>
+        </motion.div>
 
         <div className="flex items-center gap-6 mb-6 md:mb-8">
             <motion.a href="#" aria-label="Twitter" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} transition={{ duration: 0.2, ease: "easeInOut" }}>

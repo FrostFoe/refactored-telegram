@@ -19,7 +19,12 @@ const itemVariants = {
 };
 
 const PostItem = ({ post }: { post: PostFrontmatter }) => (
-  <motion.div variants={itemVariants}>
+  <motion.div 
+    variants={itemVariants}
+    whileHover={{ scale: 1.01, transition: { duration: 0.2, ease: 'easeInOut' } }}
+    whileTap={{ scale: 0.99 }}
+    className="transition-shadow hover:shadow-lg rounded-lg"
+  >
     <Link href={`/writing/${post.slug}`} className="block py-8 md:py-10 group">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 items-start">
         <div className="md:col-span-1 mb-4 md:mb-0">

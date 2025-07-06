@@ -40,7 +40,11 @@ export default function PostPageClient({ post }: { post: any }) {
       <div
         className="w-full max-w-4xl"
       >
-        <motion.div className="mb-8 md:mb-12" variants={itemVariants}>
+        <motion.div 
+          className="mb-8 md:mb-12" 
+          variants={itemVariants}
+          whileHover={{ x: -4, transition: { type: 'spring', stiffness: 400, damping: 10 } }}
+        >
             <Button variant="ghost" asChild className="text-gray-600 hover:text-gray-900">
                 <Link href="/writing">
                     <ArrowLeft className="mr-2 h-4 w-4" />

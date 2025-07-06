@@ -65,9 +65,14 @@ export default function WorkPageClient({ projects, frontmatter }: { projects: Pr
         variants={containerVariants}
       >
         {projects.map((project) => (
-            <motion.div key={project.slug} variants={itemVariants}>
+            <motion.div 
+              key={project.slug} 
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeInOut' } }}
+              whileTap={{ scale: 0.98 }}
+            >
                 <Link href={`/product/${project.slug}`} className="block group">
-                  <Card className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden">
+                  <Card className="hover:shadow-xl transition-all duration-300 overflow-hidden">
                     {project.image && (
                         <div className="overflow-hidden">
                             <Image
